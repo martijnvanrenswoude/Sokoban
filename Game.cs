@@ -7,9 +7,26 @@ namespace Sokoban
 {
     public class Game
     {
-        InputView InputView = new InputView();
-        OutputView outputView = new OutputView();
-        Parser parser = new Parser();
-        PlayField playField = new PlayField();
+        //vars
+        InputView inputView;
+        OutputView outputView;
+        Parser parser;
+        PlayField playField;
+
+        //constructor
+        public Game()
+        {
+            inputView = new InputView();
+            outputView = new OutputView();
+
+        }
+
+        public void start()
+        {
+            outputView.showTutuorial();
+            outputView.showLevelPicker();
+
+
+        }
     }
 }
