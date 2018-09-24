@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Floor : Location
+    public class Floor : Ground
     {
-        public bool IsLocation { get; private set; }
     }
 }

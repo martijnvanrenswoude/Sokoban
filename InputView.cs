@@ -25,6 +25,8 @@ namespace Sokoban
             {
                 Console.WriteLine("kies aub een valide level");
             }
+
+            return -1;
         }
     }
 }

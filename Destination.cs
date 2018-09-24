@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Chest : MovableObject
+    public class Destination : Ground
     {
     }
 }

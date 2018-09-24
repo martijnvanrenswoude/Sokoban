@@ -7,7 +7,6 @@ namespace Sokoban
 {
     public class PlayField
     {
-        Location[,] playField;
 
 
 

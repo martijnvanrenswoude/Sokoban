@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Wall: Location
+    public class Wall: UnmovableObject
     {
         //dgergqrgqer
     }

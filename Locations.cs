@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Location
+    public class MovableObject : GameObject
     {
-        public bool canMove { get; protected set; }
+        
 
     }
 }

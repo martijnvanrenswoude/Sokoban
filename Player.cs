@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Player : Location
+    public class Player : MovableObject
     {
         public Player()
         {
