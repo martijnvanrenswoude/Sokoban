@@ -9,7 +9,7 @@ namespace Sokoban
     {
         public Player()
         {
-            canMove = true;
+            
         }
     }
 }

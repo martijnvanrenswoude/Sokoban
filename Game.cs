@@ -23,10 +23,30 @@ namespace Sokoban
 
         public void start()
         {
+            //introduction
             outputView.showTutuorial();
             outputView.showLevelPicker();
+            //level selection
+            int level = inputView.ReadLevelInput();
+            while(level == -1)
+            {
+                level = inputView.ReadLevelInput();
+            }
+            //level is selected
+            outputView.showLevel(null);
+            outputView.showPlayOptions();
+
+            /*
+             * make the playfield
+             * with parser and all
+            */
+        }
 
 
+        public void shutdown()
+        {
+            //shutdown
+            Console.WriteLine("shutting down");
         }
     }
 }

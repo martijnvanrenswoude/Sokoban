@@ -9,13 +9,14 @@ namespace Sokoban
     {
         public int ReadLevelInput()
         {
-            String input = Console.ReadLine();
+            String input = readInput();
             int level = -1;
             try{
                 level = int.Parse(input);
             }catch (Exception e)
             {
-                Console.WriteLine("Voer aub een getal in");
+                Console.WriteLine("> Voer aub een getal in");
+                return -1;
             }
             if (level > 0 && level <= 4)
             {
@@ -23,10 +24,22 @@ namespace Sokoban
             }
             else
             {
-                Console.WriteLine("kies aub een valide level");
+                Console.WriteLine("> kies aub een valide level");
+            }
+            return -1;
+        }
+
+        private string readInput()
+        {
+            String input = Console.ReadLine();
+            if (input.Equals("s"))
+            {
+                //shutdown
+                Console.WriteLine("shutdown is not implemmented yet");
+                return "";
             }
 
-            return -1;
+            return input;
         }
     }
 }
