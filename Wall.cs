@@ -7,6 +7,6 @@ namespace Sokoban
 {
     public class Wall: Location
     {
-        dgergqrgqer
+        //dgergqrgqer
     }
 }
