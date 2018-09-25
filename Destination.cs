@@ -7,5 +7,10 @@ namespace Sokoban
 {
     public class Destination : Ground
     {
+
+        public Destination(char type)
+        {
+            floorType = type;
+        }
     }
 }

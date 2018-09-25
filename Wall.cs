@@ -6,6 +6,10 @@ using System.Text;
 namespace Sokoban
 {
     public class Wall: UnmovableObject
-    { 
+    {
+        public Wall(char type)
+        {
+            ObjectType = type;
+        }
     }
 }

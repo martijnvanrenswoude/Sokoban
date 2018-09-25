@@ -28,23 +28,23 @@ namespace Sokoban
                 if (square == '#')
                 {
                     //krijgt in constructor nog character mee, voor de zekerheid
-                    Wall wall = new Wall();
+                    Wall wall = new Wall('#');
                 }
                 else if (square == '.')
                 {
-                    Floor floor = new Floor();
+                    Floor floor = new Floor('.');
                 }
                 else if (square == 'x')
                 {
-                    Destination destination = new Destination();
+                    Destination destination = new Destination('x');
                 }
                 else if (square == 'o')
                 {
-                    Chest chest = new Chest();
+                    Chest chest = new Chest('o');
                 }
                 else if (square == '@')
                 {
-                    Player player = new Player();
+                    Player player = new Player('@');
                 }
 
             }
