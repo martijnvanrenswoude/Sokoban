@@ -12,7 +12,6 @@ namespace Sokoban
         {
             Game game = new Game();
             game.start();
-            Console.ReadLine();
         }
     }
 }

@@ -7,5 +7,9 @@ namespace Sokoban
 {
     public class Chest : MovableObject
     {
+        public override void move()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
