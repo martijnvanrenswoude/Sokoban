@@ -15,6 +15,7 @@ namespace Sokoban
         }
         public override void move()
         {
+            //In deze methode wordt een soort van swap uitgevoerd met de gekozen richting van de speler.
             throw new NotImplementedException();
         }
 
