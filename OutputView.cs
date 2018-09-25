@@ -51,7 +51,12 @@ namespace Sokoban
 
         public void showPlayOptions()
         {
-            Console.WriteLine("voer een actie in aub, of druk op <s> op te stoppen");
+            Console.WriteLine("voer een actie in, of druk op <s> op te stoppen");
+        }
+
+        public void showWonMessage()
+        {
+            Console.WriteLine("U hebt gewonnen!");
         }
     }
 }

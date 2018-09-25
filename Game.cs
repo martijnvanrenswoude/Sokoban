@@ -18,35 +18,56 @@ namespace Sokoban
         {
             inputView = new InputView();
             outputView = new OutputView();
-
         }
 
         public void start()
         {
             //introduction
             outputView.showTutuorial();
-            outputView.showLevelPicker();
-            //level selection
+            while (true)
+            {
+                outputView.showLevelPicker();
+                chooseLevel();
+                //playField = new PlayField();
+                while (!hasWon())
+                {
+                    doTurn();
+                }
+                outputView.showWonMessage();
+            }
+        }
+
+        private bool hasWon()
+        {
+            return false;
+        }
+
+        private void doTurn()
+        {
+            outputView.showLevel(null);
+            outputView.showPlayOptions();
+            doAction(inputView.ReadPlayMove());
+        }
+
+        private bool doAction(String action)
+        {
+            if (action.Equals(""))
+            {
+                return false;
+            }
+            Console.WriteLine("Moves are not implemented yet");
+            return true;
+            
+        }
+
+        private int chooseLevel()
+        {
             int level = inputView.ReadLevelInput();
-            while(level == -1)
+            while (level == -1)
             {
                 level = inputView.ReadLevelInput();
             }
-            //level is selected
-            outputView.showLevel(null);
-            outputView.showPlayOptions();
-
-            /*
-             * make the playfield
-             * with parser and all
-            */
-        }
-
-
-        public void shutdown()
-        {
-            //shutdown
-            Console.WriteLine("shutting down");
+            return level;
         }
     }
 }

@@ -34,12 +34,29 @@ namespace Sokoban
             String input = Console.ReadLine();
             if (input.Equals("s"))
             {
-                //shutdown
-                Console.WriteLine("shutdown is not implemmented yet");
-                return "";
+                System.Environment.Exit(1);
             }
 
             return input;
+        }
+
+        public String ReadPlayMove()
+        {
+            String input = readInput();
+            switch (input)
+            {
+                case "omlaag":
+                    return "omlaag";
+                case "omhoog":
+                    return "omhoog";
+                case "links":
+                    return "links";
+                case "rechts":
+                    return "rechts";
+                default:
+                    Console.WriteLine("geef een valide waarde in aub");
+                    return "";
+            }
         }
     }
 }

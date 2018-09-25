@@ -5,6 +5,7 @@ C:\Users\wessel\Documents\GitHub2\Sokoban\bin\Debug\Sokoban.exe
 C:\Users\wessel\Documents\GitHub2\Sokoban\bin\Debug\Sokoban.pdb
 C:\Users\wessel\Documents\GitHub2\Sokoban\obj\Debug\Sokoban.exe
 C:\Users\wessel\Documents\GitHub2\Sokoban\obj\Debug\Sokoban.pdb
+<<<<<<< HEAD
 C:\Users\Martijn\Documents\GitHub\Sokoban\obj\Debug\Sokoban.csprojAssemblyReference.cache
 C:\Users\Martijn\Documents\GitHub\Sokoban\obj\Debug\Sokoban.csproj.CoreCompileInputs.cache
 C:\Users\Martijn\Documents\GitHub\Sokoban\obj\Debug\Sokoban.exe
@@ -12,3 +13,11 @@ C:\Users\Martijn\Documents\GitHub\Sokoban\obj\Debug\Sokoban.pdb
 C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe.config
 C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe
 C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.pdb
+=======
+C:\Users\wvdf\Documents\GitHub\Sokoban\obj\Debug\Sokoban.csproj.CoreCompileInputs.cache
+C:\Users\wvdf\Documents\GitHub\Sokoban\obj\Debug\Sokoban.exe
+C:\Users\wvdf\Documents\GitHub\Sokoban\obj\Debug\Sokoban.pdb
+C:\Users\wvdf\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe.config
+C:\Users\wvdf\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe
+C:\Users\wvdf\Documents\GitHub\Sokoban\bin\Debug\Sokoban.pdb
+>>>>>>> 3c411176cae3861c04f28ea1e978ae3697657957
