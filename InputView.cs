@@ -34,9 +34,7 @@ namespace Sokoban
             String input = Console.ReadLine();
             if (input.Equals("s"))
             {
-                //shutdown
-                Console.WriteLine("shutdown is not implemmented yet");
-                return "";
+                System.Environment.Exit(1);
             }
 
             return input;

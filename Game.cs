@@ -41,12 +41,5 @@ namespace Sokoban
              * with parser and all
             */
         }
-
-
-        public void shutdown()
-        {
-            //shutdown
-            Console.WriteLine("shutting down");
-        }
     }
 }
