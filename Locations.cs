@@ -5,9 +5,11 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class MovableObject : GameObject
+    public abstract class MovableObject : GameObject
     {
-        
+
+
+        public abstract void move();
 
     }
 }

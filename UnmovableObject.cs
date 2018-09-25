@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class UnmovableObject : GameObject
+    public abstract class UnmovableObject : GameObject
        
     {
 
