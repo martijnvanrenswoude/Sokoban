@@ -8,7 +8,7 @@ namespace Sokoban
     public class PlayField
     {
         public string[] Maze { get; set; }
-        public Ground[,] ground;
+        public Ground[,] ground { get; set; }
 
         public PlayField(string[] maze)
         {
@@ -27,30 +27,6 @@ namespace Sokoban
             foreach (string temp in Maze)
             {
 
-               
-                //if (square == '#')
-                //{
-                //    //krijgt in constructor nog character mee, voor de zekerheid
-                //    Wall wall = new Wall('#');
-                //}
-                //else if (square == '.')
-                //{
-                //    Floor floor = new Floor('.');
-                //}
-                //else if (square == 'x')
-                //{
-                //    Destination destination = new Destination('x');
-                //}
-                //else if (square == 'o')
-                //{
-                //    Chest chest = new Chest('o');
-                //}
-                //else if (square == '@')
-                //{
-                //    Player player = new Player('@');
-                //}
-
-
             for(int i = 0; i < Maze.Length; i++)
                 {
                     for(int j = 0; j < Maze[j].Length; j++)
@@ -62,10 +38,36 @@ namespace Sokoban
                         char tempCharacter = Maze[i][j];
 
                         Ground tempGround = ground[Maze.Length, Maze[i].Length] = new Ground();
-                        tempGround.GameObject = new GameObject 
+                        tempGround.GameObject = createGameObject(tempCharacter);
                     }
                 }
             }
+        }
+
+        private GameObject createGameObject(char type)
+        {
+            switch (type)
+            {
+                case '#':
+                    Wall wall = new Wall('#');
+                    return wall;
+                case '.':
+                    Floor floor = new Floor('.');
+                    return floor;
+                case '@':
+                    Player player = new Player('@');
+                    return player;
+                case 'o':
+                    Chest chest = new Chest('o');
+                    return chest;
+                case 'x':
+                    Destination destination = new Destination('x');
+                    return destination;
+
+                default:
+                    return null;
+            }
+
         }
 
 
