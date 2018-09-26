@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Floor : Ground
+    public class Floor : UnmovableObject
     {
     }
 }

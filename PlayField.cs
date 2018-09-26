@@ -8,6 +8,7 @@ namespace Sokoban
     public class PlayField
     {
         public char[] Maze { get; set; }
+        public Ground[,] ground;
 
         public PlayField(char[] maze)
         {

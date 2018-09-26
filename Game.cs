@@ -28,8 +28,8 @@ namespace Sokoban
             while (true)
             {
                 outputView.showLevelPicker();
-                chooseLevel();
-                //playField = new PlayField(parser.doParsing);
+
+                //playField = new PlayField(parser.doParsing(chooseLevel();));
                 while (!hasWon())
                 {
                     doTurn();
