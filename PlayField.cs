@@ -7,10 +7,10 @@ namespace Sokoban
 {
     public class PlayField
     {
-        public char[] Maze { get; set; }
+        public string[] Maze { get; set; }
         public Ground[,] ground;
 
-        public PlayField(char[] maze)
+        public PlayField(string[] maze)
         {
             Maze = maze;
         }
@@ -21,33 +21,50 @@ namespace Sokoban
             
         }
 
-        private void initializeGameObjects()
+        private void initField()
         {
 
-            foreach (char square in Maze)
+            foreach (string temp in Maze)
             {
-                if (square == '#')
-                {
-                    //krijgt in constructor nog character mee, voor de zekerheid
-                    Wall wall = new Wall('#');
-                }
-                else if (square == '.')
-                {
-                    Floor floor = new Floor('.');
-                }
-                else if (square == 'x')
-                {
-                    Destination destination = new Destination('x');
-                }
-                else if (square == 'o')
-                {
-                    Chest chest = new Chest('o');
-                }
-                else if (square == '@')
-                {
-                    Player player = new Player('@');
-                }
 
+               
+                //if (square == '#')
+                //{
+                //    //krijgt in constructor nog character mee, voor de zekerheid
+                //    Wall wall = new Wall('#');
+                //}
+                //else if (square == '.')
+                //{
+                //    Floor floor = new Floor('.');
+                //}
+                //else if (square == 'x')
+                //{
+                //    Destination destination = new Destination('x');
+                //}
+                //else if (square == 'o')
+                //{
+                //    Chest chest = new Chest('o');
+                //}
+                //else if (square == '@')
+                //{
+                //    Player player = new Player('@');
+                //}
+
+
+            for(int i = 0; i < Maze.Length; i++)
+                {
+                    for(int j = 0; j < Maze[j].Length; j++)
+                    {
+                        if(ground == null)
+                        {
+                            ground = new Ground[Maze.Length, Maze[i].Length];
+                        }
+                        char tempCharacter = Maze[i][j];
+
+                        Ground tempGround = ground[Maze.Length, Maze[i].Length] = new Ground();
+                        tempGround.GameObject = new GameObject 
+                    }
+                }
             }
         }
 

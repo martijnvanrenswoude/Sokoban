@@ -7,7 +7,7 @@ namespace Sokoban
 {
     public class Ground
     {
-        public char floorType { get; set; }
-        GameObject gameObject;
+        public GameObject GameObject { get; set; }
+        
     }
 }

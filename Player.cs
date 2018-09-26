@@ -7,9 +7,9 @@ namespace Sokoban
 {
     public class Player : MovableObject
     {
-        public Player()
+        public Player(char type)
         {
-            
+            ObjectType = type;
         }
 
         public override void move()
