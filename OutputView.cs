@@ -16,7 +16,7 @@ namespace Sokoban
             Console.WriteLine("|                                                   |");
             Console.WriteLine("| betekenis van de symbolen   |  doel van het spel  |");
             Console.WriteLine("| spatie : outerspace         |                     |");
-            Console.WriteLine("|      # : muur               |  duw met de truck   |");
+            Console.WriteLine("|      █ : muur               |  duw met de truck   |");
             Console.WriteLine("|      . : vloer              |  de krat(ten)       |");
             Console.WriteLine("|      o : krat               |  naar de bestemming |");
             Console.WriteLine("|      0 : krat op bestemming |                     |");

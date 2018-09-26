@@ -29,7 +29,7 @@ namespace Sokoban
             {
                 outputView.showLevelPicker();
 
-                //playField = new PlayField(parser.doParsing(chooseLevel();));
+                playField = new PlayField(parser.doParsing(chooseLevel()));
                 while (!hasWon())
                 {
                     doTurn();
@@ -40,7 +40,16 @@ namespace Sokoban
 
         private bool hasWon()
         {
+            Ground[,] ground = playField.getGround(); 
+            for(int i = 0; i < ground.Length; i++)
+            {
+                for(int j =0; j < ground[i].length; j++)
+                {
+
+                }
+            }
             return false;
+
         }
 
         private void doTurn()
