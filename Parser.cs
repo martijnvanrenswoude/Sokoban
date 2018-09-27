@@ -14,37 +14,13 @@ namespace Sokoban
 
         }
 
-        public void doParsing(int levelSelection)
+        public string[] doParsing(int levelSelection)
         {
+           
             string filepath = @"C:\Users\Martijn\Documents\GitHub\Sokoban\Doolhof\doolhof" + levelSelection + ".txt";
-            char[] maze = File.ReadAllText(filepath).ToCharArray();
+            string[] maze = File.ReadAllLines(filepath);
 
-            foreach(char square in maze)
-            {
-                if (square == '#')
-                {
-                    //krijgt in constructor nog character mee, voor de zekerheid
-                    Wall wall = new Wall();
-                }
-                else if (square == '.')
-                {
-                    Floor floor = new Floor();
-                }
-                else if (square == 'x')
-                {
-                    Destination destination = new Destination();
-                }
-                else if (square == 'o')
-                {
-                    Chest chest = new Chest();
-                }
-                else if(square == '@')
-                {
-                    Player player = new Player();
-                }
-
-            }
-            
+            return maze;
         }
 
         public char[][] getLocationArray()

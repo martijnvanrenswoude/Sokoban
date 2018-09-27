@@ -7,5 +7,9 @@ namespace Sokoban
 {
     public class Floor : UnmovableObject
     {
+        public Floor(char type)
+        {
+            ObjectType = type;
+        }
     }
 }
