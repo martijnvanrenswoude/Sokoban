@@ -10,9 +10,12 @@ namespace Sokoban
         public string[] Maze { get; set; }
         public Ground[,] ground { get; set; }
 
+        public Ground First { get; set; }
+
         public PlayField(string[] maze)
         {
             Maze = maze;
+            First = new Ground();
         }
 
 
@@ -27,11 +30,11 @@ namespace Sokoban
             foreach (string temp in Maze)
             {
 
-            for(int i = 0; i < Maze.Length; i++)
+                for (int i = 0; i < Maze.Length; i++)
                 {
-                    for(int j = 0; j < Maze[j].Length; j++)
+                    for (int j = 0; j < Maze[j].Length; j++)
                     {
-                        if(ground == null)
+                        if (ground == null)
                         {
                             ground = new Ground[Maze.Length, Maze[i].Length];
                         }
@@ -42,6 +45,32 @@ namespace Sokoban
                     }
                 }
             }
+
+        }
+
+        public void initFieldPartTwo()
+        {
+            Ground tempHorizontal = First, tempVertical = First;
+
+
+
+            for(int i = 0; i < Maze.Length; i++)
+            {
+                if(i > 0)
+                {
+                  
+                }
+
+                for(int j = 0; j < Maze[i].Length; j++)
+                {
+                    tempHorizontal.East = new Ground();
+                    tempHorizontal.East.West = tempHorizontal;
+                    tempHorizontal = tempHorizontal.East;
+
+
+                }
+            }
+
         }
 
         private GameObject createGameObject(char type)
