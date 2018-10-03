@@ -37,7 +37,7 @@ namespace Sokoban
 
         public String getDataWithIndex(int i)
         {
-            return data[i];
+            return maze[i];
         }
     }
 }

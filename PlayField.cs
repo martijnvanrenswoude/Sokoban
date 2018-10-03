@@ -123,13 +123,16 @@ namespace Sokoban
                 floors[index].setContent(value[i]);      // set de juiste waarde in het item
                 //vul de referenties\\
                 //set north
-                setNorth(rowNumber, i, index);
-                //set south
-                setSouth(rowNumber, i, index);
-                //set west
-                setWest(rowNumber, i, index);
-                //set east
-                setEast(rowNumber, i, index);
+                if (isVoid)
+                {
+                    setNorth(rowNumber, i, index);
+                    //set south
+                    setSouth(rowNumber, i, index);
+                    //set west
+                    setWest(rowNumber, i, index);
+                    //set east
+                    setEast(rowNumber, i, index);
+                }
             }
         } //vul een rij in
 
