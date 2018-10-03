@@ -30,6 +30,7 @@ namespace Sokoban
                 outputView.showLevelPicker();
                 parser = new Parser(chooseLevel());
                 playField = new PlayField(parser);
+
                 while (hasWon()) // make this !hasWon \\
                 {
                     doTurn();
@@ -40,24 +41,14 @@ namespace Sokoban
 
         private bool hasWon()
         {
-            Floor[,] ground = new Floor[10, 10];//playField.getGround();\\
-            for(int i = 0; i < ground.GetLength(0); i++)
-            {
-                for(int j =0; j < ground.GetLength(1); j++)
-                {
-                    if (ground[i,j].GetType() == typeof(Destination)) //what do we do with this
-                    {
-                        return false;
-                    }
-                }
-            }
+            
             return true;
 
         }
 
         private void doTurn()
         {
-            outputView.showLevel(null);
+            outputView.showLevel(playField.First);
             outputView.showPlayOptions();
             doAction(inputView.ReadPlayMove());
         }

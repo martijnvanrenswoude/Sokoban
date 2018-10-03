@@ -16,7 +16,7 @@ namespace Sokoban
         }
         public string[] doParsing(int levelSelection)
         {           
-           string filepath = @"C:\Users\Martijn\Documents\GitHub\Sokoban\Doolhof\doolhof" + levelSelection + ".txt";
+           string filepath = @"\Sokoban\Doolhof\doolhof" + levelSelection + ".txt";
            return File.ReadAllLines(filepath);
         }
 

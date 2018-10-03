@@ -44,43 +44,51 @@ namespace Sokoban
             Console.WriteLine("> Kies een doolhof (1-4), s = stop");
         }
 
-        public void showLevel(Floor[] floors,int rowLength)
+        public void showLevel(Floor first)
         {
             char symbol = ' ';
-            for (int i = 0; i < floors.Length; i++)
+            Floor holder = first;
+            Floor temp = first;
+            while(holder.South != null)
             {
-                switch (floors[i].getGameObjectType())
+                while (temp.East != null)
                 {
-                    case '#':
-                        symbol = '█';
-                        break;
-                    case '@':
-                        symbol = '@';
-                        break;
-                    case 'o':
-                        Chest c = (Chest) floors[i].GameObject;
-                        if (c.IsOnDestination)
-                        {
-                            symbol = '0';
-                        }
-                        else
-                        {
-                            symbol = 'O';
-                        }
-                        break;
-                    case '!':
-                        if (floors[i].isDesitination)
-                        {
-                            symbol = 'x';
-                        }
-                        else
-                        {
-                            symbol = '.';
-                        }
-                        break;
+                    switch (temp.getGameObjectType())
+                    {
+                        case '#':
+                          //  symbol = '█';
+                            break;
+                        case '@':
+                            symbol = '@';
+                            break;
+                        case 'o':
+                            Chest c = (Chest)temp.GameObject;
+                            if (c.IsOnDestination)
+                            {
+                                symbol = '0';
+                            }
+                            else
+                            {
+                                symbol = 'O';
+                            }
+                            break;
+                        case '!':
+                            if (temp.isDesitination)
+                            {
+                                symbol = 'x';
+                            }
+                            else
+                            {
+                                symbol = '.';
+                            }
+                            break;
+                    }
+                    Console.Write(symbol);
+                    temp = temp.East;
                 }
-               
-                //printss
+                Console.WriteLine();
+                temp = holder.South;
+                holder = holder.South;
             }
         }
 
