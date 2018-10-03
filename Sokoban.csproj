@@ -47,7 +47,6 @@
     <Compile Include="Destination.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Ground.cs" />
     <Compile Include="InputView.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="OutputView.cs" />
