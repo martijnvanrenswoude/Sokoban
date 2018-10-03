@@ -100,7 +100,7 @@ namespace Sokoban
                 floors[index].setContent(value[i]);      // set de juiste waarde in het item
                 //vul de referenties\\
                 //set north
-                if (isVoid)
+                if (floors[index].IsVoid)
                 {
                     setNorth(rowNumber, i, index);
                     //set south

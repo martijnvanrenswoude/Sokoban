@@ -18,7 +18,7 @@ namespace Sokoban
         public Floor East {get; set;}
 
 
-        private void createGameObject(char type)
+        public void setContent(char type)
         {
             switch (type)
             {
