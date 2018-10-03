@@ -44,9 +44,16 @@ namespace Sokoban
             Console.WriteLine("> Kies een doolhof (1-4), s = stop");
         }
 
-        public void showLevel(char[][] maze)
+        public void showLevel(Floor[] floors,int rowLength)
         {
-            Console.WriteLine("//visual field not implemented yet\\");
+            char symbol;
+            for (int i = 0; i < floors.Length; i++)
+            {
+                switch (floors[i].getGameObjectType)
+                {
+
+                }
+            }
         }
 
         public void showPlayOptions()

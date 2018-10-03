@@ -51,7 +51,12 @@ namespace Sokoban
 
         public char getGameObjectType()
         {
+            if(GameObject == null)
+            {
+                return '!';
+            }
             return GameObject.ObjectType;
+            
         }
     }
 }
