@@ -137,9 +137,10 @@ namespace Sokoban
                     {
                         return (Player) temp.GameObject;
                     }
-                    temp = holder.South;
-                    holder = holder.South;
+                    temp = temp.East;
                 }
+                temp = holder.South;
+                holder = holder.South;
             }
             return null;
         }
