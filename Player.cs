@@ -7,9 +7,11 @@ namespace Sokoban
 {
     public class Player : MovableObject
     {
-        public Player(char type)
+        private Floor floor;
+        public Player(char type, Floor floor)
         {
             ObjectType = type;
+            this.floor = floor;
         }
 
         public override void move(String direction)
@@ -21,7 +23,8 @@ namespace Sokoban
         {
             switch (direction)
             {
-                case
+                //case "links": 
+
             }
         }
 

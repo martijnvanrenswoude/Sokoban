@@ -27,7 +27,7 @@ namespace Sokoban
                     GameObject = new Wall('#');
                     break;
                 case '@':
-                    GameObject = new Player('@');
+                    GameObject = new Player('@', this);
                     break;
                     
                 case 'o':
