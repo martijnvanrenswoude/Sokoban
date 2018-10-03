@@ -57,7 +57,29 @@ namespace Sokoban
         }
         public override void swap(string direction)
         {
-            throw new NotImplementedException();
+            switch (direction)
+            {
+                case "links":
+                    floor.West.GameObject = this;
+                    floor.GameObject = null;
+                    floor = floor.West;
+                    break;
+                case "rechts":
+                    floor.East.GameObject = this;
+                    floor.GameObject = null;
+                    floor = floor.East;
+                    break;
+                case "omhoog":
+                    floor.North.GameObject = this;
+                    floor.GameObject = null;
+                    floor = floor.North;
+                    break;
+                case "omlaag":
+                    floor.South.GameObject = this;
+                    floor.GameObject = null;
+                    floor = floor.South;
+                    break;
+            }
         }
         public void changeObjectChar()
         {

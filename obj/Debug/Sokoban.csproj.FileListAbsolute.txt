@@ -11,3 +11,4 @@ C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe.config
 C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.exe
 C:\Users\Martijn\Documents\GitHub\Sokoban\bin\Debug\Sokoban.pdb
 C:\Users\wessel\Documents\GitHub2\Sokoban\obj\Debug\Sokoban.csprojAssemblyReference.cache
+C:\Users\Martijn\Documents\GitHub\Sokoban\obj\Debug\Sokoban.csprojAssemblyReference.cache
