@@ -9,7 +9,7 @@ namespace Sokoban
     {
 
 
-        public abstract void move();
+        public abstract void move(String direction);
 
     }
 }

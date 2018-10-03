@@ -12,9 +12,9 @@ namespace Sokoban
             ObjectType = type;
         }
 
-        public override void move()
+        public override void move(String direction)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

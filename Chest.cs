@@ -21,7 +21,7 @@ namespace Sokoban
 
         public void changeObjectChar()
         {
-            if (IsOnDestination)
+            if (!IsOnDestination)
             {
                 ObjectType = 'o';
             }
