@@ -31,7 +31,7 @@ namespace Sokoban
 
         private string readInput()
         {
-            String input = Console.ReadLine();
+            String input = Console.ReadLine().ToLower();
             if (input.Equals("s"))
             {
                 System.Environment.Exit(1);
