@@ -11,13 +11,15 @@ namespace Sokoban
         public int NumberOfColumns { get; private set; }
         public string[] Maze { get; set; }
         public Floor[,] ground { get; set; }
-
+        public Floor[] floor { get; set; }
         public Floor First { get; set; }
 
+        public int NrOfItems { get; set; }
         public PlayField(string[] maze, int numberOfRows, int numberOfColumns)
         {
             NumberOfColumns = numberOfColumns;
             NumberOfRows = numberOfRows;
+            NrOfItems = NumberOfColumns * NumberOfRows;
             Maze = maze;
             First = new Floor();
         }
@@ -102,6 +104,17 @@ namespace Sokoban
             }
 
         }
+
+        private void makeItems()
+        {
+            floor = new Floor[parser.numberOfItems()]; //maak de array
+            for (int i = 0; i < floor.Length; i++)         // vul de array met objecten
+            {
+                floor[i] = new Floor();
+            }
+        } // maak het item array
+
+
 
 
     }

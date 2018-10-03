@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Ground
+    public class Floor
     {
         public GameObject GameObject { get; set; }
 
         public Boolean isDesitination { get; set; }
-        public Ground North {get; set;}
-        public Ground South {get; set;}
-        public Ground West {get; set;}
-        public Ground East {get; set;}
+        public Floor North {get; set;}
+        public Floor South {get; set;}
+        public Floor West {get; set;}
+        public Floor East {get; set;}
 
     }
 }
