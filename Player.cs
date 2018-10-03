@@ -20,13 +20,32 @@ namespace Sokoban
             switch (direction)
             {
                 case "links" :
-                    if(floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
+
+                    if (floor.West.GameObject is Chest)
+                    {
+                        Chest c = (Chest)floor.West.GameObject;
+                        c.move(direction);
+                        swap(direction);
+                    }
+
+                    if (floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
 
                     }
                     break;
+
+
+
                 case "rechts":
+
+                    if (floor.East.GameObject is Chest)
+                    {
+                        Chest c = (Chest)floor.West.GameObject;
+                        c.move(direction);
+                        swap(direction);
+                    }
+
                     if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
@@ -35,6 +54,14 @@ namespace Sokoban
                     break;
 
                 case "omhoog":
+
+                    if (floor.North.GameObject is Chest)
+                    {
+                        Chest c = (Chest)floor.North.GameObject;
+                        c.move(direction);
+                        swap(direction);
+                    }
+
                     if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
@@ -43,6 +70,13 @@ namespace Sokoban
                     break;
 
                 case "omlaag":
+
+                    if (floor.South.GameObject is Chest)
+                    {
+                        Chest c = (Chest)floor.South.GameObject;
+                        c.move(direction);
+                    }
+
                     if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
                     {
                         swap(direction);

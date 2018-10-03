@@ -7,16 +7,53 @@ namespace Sokoban
 {
     public class Chest : MovableObject
     {
+
+        private Floor floor;
         public bool IsOnDestination { get; set; }
 
-        public Chest(char type)
+        public Chest(char type, Floor floor)
         {
             ObjectType = type;
+            this.floor = floor;
         }
         public override void move(String direction)
         {
-            //In deze methode wordt een soort van swap uitgevoerd met de gekozen richting van de speler.
-            throw new NotImplementedException();
+
+            switch (direction)
+            {
+                case "links":
+
+                    if (floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
+                    {
+                        swap(direction);
+
+                    }
+                    break;
+                case "rechts":
+                    if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
+                    {
+                        swap(direction);
+
+                    }
+                    break;
+
+                case "omhoog":
+                    if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
+                    {
+                        swap(direction);
+
+                    }
+                    break;
+
+                case "omlaag":
+                    if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
+                    {
+                        swap(direction);
+
+                    }
+                    break;
+            }
+
         }
         public override void swap(string direction)
         {

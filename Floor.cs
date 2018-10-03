@@ -31,7 +31,7 @@ namespace Sokoban
                     break;
                     
                 case 'o':
-                    GameObject = new Chest('o');
+                    GameObject = new Chest('o', this);
                     break;
                     
                 case 'x':
