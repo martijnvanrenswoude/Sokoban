@@ -13,7 +13,7 @@ namespace Sokoban
         {
             ObjectType = type;
         }
-        public override void move()
+        public override void move(String direction)
         {
             //In deze methode wordt een soort van swap uitgevoerd met de gekozen richting van de speler.
             throw new NotImplementedException();
