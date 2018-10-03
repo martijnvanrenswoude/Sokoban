@@ -42,7 +42,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Parser">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAACAAAAAAAggAAAAAAAAAAAAABAAAg=</HashCode>
       <FileName>Parser.cs</FileName>
@@ -70,7 +70,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.GameObject">
-    <Position X="10" Y="5.25" Width="1.5" />
+    <Position X="10" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Object.cs</FileName>
@@ -79,7 +79,7 @@
   <Class Name="Sokoban.Floor">
     <Position X="9.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAgAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAIBAAQ=</HashCode>
+      <HashCode>AACAgAAAAAAAAAAAAAABAAAAEEAAgAAAAAAAAAoBAAQ=</HashCode>
       <FileName>Floor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -89,7 +89,7 @@
   <Class Name="Sokoban.PlayField" Collapsed="true">
     <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQwEAAAEgAAAQAAAAAIAAAAACgAQAAAAIAAAAgBAAA=</HashCode>
+      <HashCode>AAQwEAAAEgAAAQAAAAAIAAAAACgAQAAAAIAAAAABAAA=</HashCode>
       <FileName>PlayField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

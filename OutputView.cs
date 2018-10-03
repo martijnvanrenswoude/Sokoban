@@ -46,13 +46,41 @@ namespace Sokoban
 
         public void showLevel(Floor[] floors,int rowLength)
         {
-            char symbol;
+            char symbol = ' ';
             for (int i = 0; i < floors.Length; i++)
             {
-                switch (floors[i].getGameObjectType)
+                switch (floors[i].getGameObjectType())
                 {
-
+                    case '#':
+                        symbol = '█';
+                        break;
+                    case '@':
+                        symbol = '@';
+                        break;
+                    case 'o':
+                        Chest c = (Chest) floors[i].GameObject;
+                        if (c.IsOnDestination)
+                        {
+                            symbol = '0';
+                        }
+                        else
+                        {
+                            symbol = 'O';
+                        }
+                        break;
+                    case '!':
+                        if (floors[i].isDesitination)
+                        {
+                            symbol = 'x';
+                        }
+                        else
+                        {
+                            symbol = '.';
+                        }
+                        break;
                 }
+               
+                //printss
             }
         }
 
