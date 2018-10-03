@@ -8,7 +8,7 @@ namespace Sokoban
 {
     public class Parser
     {
-        public String[] maze;
+        public String[] maze { get; private set; }
 
         public Parser(int level)
         {
@@ -25,10 +25,14 @@ namespace Sokoban
             return maze.Length;
         }
 
-        public int getColumn()
+        public int getNumberColumn()
         {
             return maze[0].Length;
         }
 
+        public int getNumberOfItems()
+        {
+            return getNumberColumn() * getNumberOfRows();
+        }
     }
 }

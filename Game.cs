@@ -18,7 +18,6 @@ namespace Sokoban
         {
             inputView = new InputView();
             outputView = new OutputView();
-            Parser parser = new Parser();
         }
 
         public void start()
@@ -28,8 +27,7 @@ namespace Sokoban
             while (true)
             {
                 outputView.showLevelPicker();
-
-                playField = new PlayField(parser.doParsing(chooseLevel()));
+                playField = new PlayField(new Parser(chooseLevel()));
                 while (hasWon()) // make this !hasWon \\
                 {
                     doTurn();

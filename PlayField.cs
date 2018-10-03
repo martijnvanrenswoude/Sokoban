@@ -7,20 +7,14 @@ namespace Sokoban
 {
     public class PlayField
     {
-        public int NumberOfRows { get; private set; }
-        public int NumberOfColumns { get; private set; }
-        public string[] Maze { get; set; }
+        public Parser Parser { get; private set; }
         public Floor[,] ground { get; set; }
         public Floor[] floor { get; set; }
         public Floor First { get; set; }
 
-        public int NrOfItems { get; set; }
-        public PlayField(string[] maze, int numberOfRows, int numberOfColumns)
+        public PlayField(Parser parser)
         {
-            NumberOfColumns = numberOfColumns;
-            NumberOfRows = numberOfRows;
-            NrOfItems = NumberOfColumns * NumberOfRows;
-            Maze = maze;
+            Parser = parser;
             First = new Floor();
         }
 
