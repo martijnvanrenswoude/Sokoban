@@ -34,5 +34,10 @@ namespace Sokoban
         {
             return getNumberColumn() * getNumberOfRows();
         }
+
+        public String getDataWithIndex(int i)
+        {
+            return data[i];
+        }
     }
 }
