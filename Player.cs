@@ -28,7 +28,7 @@ namespace Sokoban
                         swap(direction);
                     }
 
-                    if (floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
+                    else if (floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
 
@@ -46,7 +46,7 @@ namespace Sokoban
                         swap(direction);
                     }
 
-                    if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
+                    else if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
 
@@ -62,7 +62,7 @@ namespace Sokoban
                         swap(direction);
                     }
 
-                    if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
+                    else if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
 
@@ -77,7 +77,7 @@ namespace Sokoban
                         c.move(direction);
                     }
 
-                    if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
+                    else if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
 
