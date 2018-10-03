@@ -47,15 +47,13 @@ namespace Sokoban
                 floors[index].setContent(value[i]);      // set de juiste waarde in het item
                 //vul de referenties\\
                 //set north
-
-                    setNorth(rowNumber, i, index);
-                    //set south
-                    setSouth(rowNumber, i, index);
-                    //set west
-                    setWest(rowNumber, i, index);
-                    //set east
-                    setEast(rowNumber, i, index);
-                
+                setNorth(rowNumber, i, index);
+                //set south
+                setSouth(rowNumber, i, index);
+                //set west
+                setWest(rowNumber, i, index);
+                //set east
+                setEast(rowNumber, i, index);                
             }
         } //vul een rij in
 
@@ -97,7 +95,7 @@ namespace Sokoban
 
         private void setEast(int row, int column, int index)
         {
-            if (column < Parser.getNumberOfRows() - 1)
+            if (column < Parser.getNumberColumn() - 1)
             {
                 floors[index].East = floors[CalcultateIndex(column + 1, row)];
             }

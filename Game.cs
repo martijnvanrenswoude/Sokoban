@@ -46,7 +46,7 @@ namespace Sokoban
 
         private void doTurn()
         {
-            outputView.showLevel(playField.First);
+            outputView.showLevel(playField.First,parser.getNumberOfRows(), parser.getNumberColumn());
             outputView.showPlayOptions();
             doAction(inputView.ReadPlayMove());
         }

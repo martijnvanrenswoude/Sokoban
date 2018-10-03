@@ -44,14 +44,14 @@ namespace Sokoban
             Console.WriteLine("> Kies een doolhof (1-4), s = stop");
         }
 
-        public void showLevel(Floor first)
+        public void showLevel(Floor first,int rows,int columns)
         {
             char symbol = ' ';
             Floor holder = first;
             Floor temp = first;
-            while (holder.South != null)
+            for (int i = 0; i < rows; i++)
             {
-                while (temp.East != null)
+                for (int j = 0; j < columns; j++)
                 {
                     switch (temp.getGameObjectType())
                     {
@@ -76,6 +76,10 @@ namespace Sokoban
                             if (temp.isDesitination)
                             {
                                 symbol = 'x';
+                            }
+                            else if(temp.IsVoid)
+                            {
+                                symbol = ' ';
                             }
                             else
                             {
