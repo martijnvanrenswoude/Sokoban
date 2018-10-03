@@ -8,34 +8,26 @@ namespace Sokoban
 {
     public class Parser
     {
+        public String[] maze;
 
-        public Parser()
+        public Parser(int level)
         {
-
+            maze = doParsing(level);
         }
-
         public string[] doParsing(int levelSelection)
-        {
-           
-            string filepath = @"C:\Users\Martijn\Documents\GitHub\Sokoban\Doolhof\doolhof" + levelSelection + ".txt";
-            string[] maze = File.ReadAllLines(filepath);
-
-            return maze;
+        {           
+           string filepath = @"C:\Users\Martijn\Documents\GitHub\Sokoban\Doolhof\doolhof" + levelSelection + ".txt";
+           return File.ReadAllLines(filepath);
         }
 
-        public char[][] getLocationArray()
+        public int getNumberOfRows()
         {
-            return null;
+            return maze.Length;
         }
 
-        public int getHeight()
+        public int getColumn()
         {
-            return -1;
-        }
-
-        public int getWidht()
-        {
-            return -1;
+            return maze[0].Length;
         }
 
     }
