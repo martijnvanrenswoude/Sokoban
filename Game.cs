@@ -40,10 +40,8 @@ namespace Sokoban
         }
 
         private bool hasWon()
-        {
-            
+        {            
             return true;
-
         }
 
         private void doTurn()

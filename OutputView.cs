@@ -49,7 +49,6 @@ namespace Sokoban
             char symbol = ' ';
             Floor holder = first;
             Floor temp = first;
-            Console.WriteLine("YOLO");
             while (holder.South != null)
             {
                 while (temp.East != null)
