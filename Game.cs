@@ -40,7 +40,7 @@ namespace Sokoban
 
         private bool hasWon()
         {
-            Ground[,] ground = new Ground[10, 10];//playField.getGround();\\
+            Floor[,] ground = new Floor[10, 10];//playField.getGround();\\
             for(int i = 0; i < ground.GetLength(0); i++)
             {
                 for(int j =0; j < ground.GetLength(1); j++)

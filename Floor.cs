@@ -5,11 +5,15 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Floor : UnmovableObject
+    public class Ground
     {
-        public Floor(char type)
-        {
-            ObjectType = type;
-        }
+        public GameObject GameObject { get; set; }
+
+        public Boolean isDesitination { get; set; }
+        public Ground North {get; set;}
+        public Ground South {get; set;}
+        public Ground West {get; set;}
+        public Ground East {get; set;}
+
     }
 }

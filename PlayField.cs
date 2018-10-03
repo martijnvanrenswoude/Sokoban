@@ -7,15 +7,19 @@ namespace Sokoban
 {
     public class PlayField
     {
+        public int NumberOfRows { get; private set; }
+        public int NumberOfColumns { get; private set; }
         public string[] Maze { get; set; }
-        public Ground[,] ground { get; set; }
+        public Floor[,] ground { get; set; }
 
-        public Ground First { get; set; }
+        public Floor First { get; set; }
 
-        public PlayField(string[] maze)
+        public PlayField(string[] maze, int numberOfRows, int numberOfColumns)
         {
+            NumberOfColumns = numberOfColumns;
+            NumberOfRows = numberOfRows;
             Maze = maze;
-            First = new Ground();
+            First = new Floor();
         }
 
 
@@ -36,11 +40,11 @@ namespace Sokoban
                     {
                         if (ground == null)
                         {
-                            ground = new Ground[Maze.Length, Maze[i].Length];
+                            ground = new Floor[Maze.Length, Maze[i].Length];
                         }
                         char tempCharacter = Maze[i][j];
 
-                        Ground tempGround = ground[Maze.Length, Maze[i].Length] = new Ground();
+                        Floor tempGround = ground[Maze.Length, Maze[i].Length] = new Floor();
                         tempGround.GameObject = createGameObject(tempCharacter);
                     }
                 }
@@ -50,7 +54,7 @@ namespace Sokoban
 
         public void initFieldPartTwo()
         {
-            Ground tempHorizontal = First, tempVertical = First;
+            Floor tempHorizontal = First, tempVertical = First;
 
 
 
@@ -63,7 +67,7 @@ namespace Sokoban
 
                 for(int j = 0; j < Maze[i].Length; j++)
                 {
-                    tempHorizontal.East = new Ground();
+                    tempHorizontal.East = new Floor();
                     tempHorizontal.East.West = tempHorizontal;
                     tempHorizontal = tempHorizontal.East;
 
