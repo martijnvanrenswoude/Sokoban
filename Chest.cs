@@ -18,7 +18,10 @@ namespace Sokoban
             //In deze methode wordt een soort van swap uitgevoerd met de gekozen richting van de speler.
             throw new NotImplementedException();
         }
-
+        public override void swap(string direction)
+        {
+            throw new NotImplementedException();
+        }
         public void changeObjectChar()
         {
             if (!IsOnDestination)

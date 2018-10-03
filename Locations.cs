@@ -11,5 +11,7 @@ namespace Sokoban
 
         public abstract void move(String direction);
 
+        public abstract void swap(String direction);
+
     }
 }

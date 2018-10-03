@@ -16,5 +16,15 @@ namespace Sokoban
         {
             
         }
+
+        public override void swap(string direction)
+        {
+            switch (direction)
+            {
+                case
+            }
+        }
+
+
     }
 }
