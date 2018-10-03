@@ -15,63 +15,9 @@ namespace Sokoban
         public PlayField(Parser parser)
         {
             Parser = parser;
-            First = new Floor();
-        }
-
-
-        private void setLocations(int height, int width, char[][] loc)
-        {
-
-        }
-
-        //private void initField()
-        //{
-
-        //    foreach (string temp in Maze)
-        //    {
-
-        //        for (int i = 0; i < Maze.Length; i++)
-        //        {
-        //            for (int j = 0; j < Maze[j].Length; j++)
-        //            {
-        //                if (ground == null)
-        //                {
-        //                    ground = new Floor[Maze.Length, Maze[i].Length];
-        //                }
-        //                char tempCharacter = Maze[i][j];
-
-        //                Floor tempGround = ground[Maze.Length, Maze[i].Length] = new Floor();
-        //                tempGround.GameObject = createGameObject(tempCharacter);
-        //            }
-        //        }
-        //    }
-
-        //}
-
-        //public void initFieldPartTwo()
-        //{
-        //    Floor tempHorizontal = First, tempVertical = First;
-
-
-
-        //    for(int i = 0; i < Maze.Length; i++)
-        //    {
-        //        if(i > 0)
-        //        {
-
-        //        }
-
-        //        for(int j = 0; j < Maze[i].Length; j++)
-        //        {
-        //            tempHorizontal.East = new Floor();
-        //            tempHorizontal.East.West = tempHorizontal;
-        //            tempHorizontal = tempHorizontal.East;
-
-
-        //        }
-        //    }
-
-        //}
+            makeItems();
+            setAllRows();
+        } 
 
 
         private void makeItems()
@@ -81,6 +27,7 @@ namespace Sokoban
             {
                 floors[i] = new Floor();
             }
+            First = floors[0];
         } // maak het item array
 
         private void setAllRows()

@@ -49,14 +49,15 @@ namespace Sokoban
             char symbol = ' ';
             Floor holder = first;
             Floor temp = first;
-            while(holder.South != null)
+            Console.WriteLine("YOLO");
+            while (holder.South != null)
             {
                 while (temp.East != null)
                 {
                     switch (temp.getGameObjectType())
                     {
                         case '#':
-                          //  symbol = '█';
+                            symbol = '█';
                             break;
                         case '@':
                             symbol = '@';
