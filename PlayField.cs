@@ -121,6 +121,27 @@ namespace Sokoban
                 Console.WriteLine();
             }
         }//print de data uit het item array
-    }
 
+        public Player getPlayer()
+        {
+            int rows = Parser.getNumberOfRows();
+            int columns = Parser.getNumberColumn();
+            Floor temp = First;
+            Floor holder = First;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (temp.GameObject is Player)
+                    {
+                        return (Player) temp.GameObject;
+                    }
+                    temp = holder.South;
+                    holder = holder.South;
+                }
+            }
+            return null;
+        }
+    }
 }
