@@ -73,30 +73,7 @@ namespace Sokoban
 
         //}
 
-        private GameObject createGameObject(char type)
-        {
-            switch (type)
-            {
-                case '#':
-                    Wall wall = new Wall('#');
-                    return wall;
-                case '@':
-                    Player player = new Player('@');
-                    return player;
-                case 'o':
-                    Chest chest = new Chest('o');
-                    return chest;
-                case 'x':
-                    Destination destination = new Destination('x');
-                    return destination;
 
-                default:
-                    return null;
-            }
-
-
-
-        }
         private void makeItems()
         {
             floors = new Floor[Parser.getNumberOfItems()]; //maak de array
