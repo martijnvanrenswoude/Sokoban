@@ -31,7 +31,7 @@ namespace Sokoban
                 parser = new Parser(chooseLevel());
                 playField = new PlayField(parser);
 
-                while (hasWon()) // make this !hasWon \\
+                while (!hasWon(playField.First,parser.getNumberOfRows(),parser.getNumberColumn())) 
                 {
                     doTurn();
                 }
@@ -39,8 +39,28 @@ namespace Sokoban
             }
         }
 
-        private bool hasWon()
-        {            
+        private bool hasWon(Floor first,int rows,int columns)
+        {
+            Chest c;
+            Floor holder = first;
+            Floor temp = first;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if(temp.GameObject is Chest)
+                    {
+                        c = (Chest)temp.GameObject;
+                        if (!c.IsOnDestination)
+                        {
+                            return false;
+                        }
+                    }
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
             return true;
         }
 
@@ -51,15 +71,9 @@ namespace Sokoban
             doAction(inputView.ReadPlayMove());
         }
 
-        private bool doAction(String action)
+        private void doAction(String action)
         {
-            if (action.Equals(""))
-            {
-                return false;
-            }
-            Console.WriteLine("Moves are not implemented yet");
-            return true;
-            
+            playField.getPlayer().move(action);            
         }
 
         private int chooseLevel()
