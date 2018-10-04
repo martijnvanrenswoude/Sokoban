@@ -20,15 +20,18 @@ namespace Sokoban
             switch (direction)
             {
                 case "links" :
-
-                    if (floor.West.GameObject is Chest)
+                    if (floor.West .GameObject is UnmovableObject)
+                    {
+                        break;
+                    }
+                    if (floor.West.GameObject is Chest && !floor.West.West.getGameObjectType().Equals('#'))
                     {
                         Chest c = (Chest)floor.West.GameObject;
                         c.move(direction);
                         swap(direction);
                     }
 
-                    else if (floor.West == null || !(floor.West.getGameObjectType().Equals('#')))
+                    else if (floor.West.GameObject == null)
                     {
                         swap(direction);
 
@@ -39,43 +42,61 @@ namespace Sokoban
 
                 case "rechts":
 
-                    if (floor.East.GameObject is Chest)
+                    if (floor.East.GameObject is UnmovableObject)
                     {
-                        Chest c = (Chest)floor.West.GameObject;
+                        break;
+                    }
+
+                    else if (floor.East.GameObject is Chest && !floor.East.East.getGameObjectType().Equals('#'))
+                    {
+                        Chest c = (Chest)floor.East.GameObject;
                         c.move(direction);
                         swap(direction);
                     }
 
-                    else if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
+                    else if (floor.East.GameObject == null)
                     {
                         swap(direction);
                     }
                     break;
 
+
                 case "omhoog":
 
-                    if (floor.North.GameObject is Chest)
+                    if(floor.North.GameObject is UnmovableObject)
+                    {
+                        break;
+                    }
+                    else if (floor.North.GameObject is Chest && !(floor.North.North.GameObject is UnmovableObject))
                     {
                         Chest c = (Chest)floor.North.GameObject;
                         c.move(direction);
                         swap(direction);
+                        
                     }
 
-                    else if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
+                    else if (floor.North.GameObject == null)
                     {
                         swap(direction);
                     }
                     break;
 
+
                 case "omlaag":
 
-                    if (floor.South.GameObject is Chest)
+                    if (floor.South.GameObject is UnmovableObject)
+                    {
+                        break;
+                    }
+
+                    if (floor.South.GameObject is Chest && !floor.South.South.getGameObjectType().Equals('#'))
                     {
                         Chest c = (Chest)floor.South.GameObject;
                         c.move(direction);
+                        swap(direction);
                     }
 
-                    else if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
+                    else if (floor.South.GameObject == null)
                     {
                         swap(direction);
                     }

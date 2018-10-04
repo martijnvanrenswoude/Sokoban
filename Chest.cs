@@ -80,16 +80,17 @@ namespace Sokoban
                     floor = floor.South;
                     break;
             }
+            destinationCheck();
         }
-        public void changeObjectChar()
+        public void destinationCheck()
         {
-            if (!IsOnDestination)
+            if (floor.isDesitination)
             {
-                ObjectType = 'o';
+                IsOnDestination = true;
             }
             else
             {
-                ObjectType = '0';
+                IsOnDestination = false;
             }
         }
     }
