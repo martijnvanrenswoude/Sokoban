@@ -49,7 +49,6 @@ namespace Sokoban
                     else if (floor.East == null || !(floor.East.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
-
                     }
                     break;
 
@@ -65,7 +64,6 @@ namespace Sokoban
                     else if (floor.North == null || !(floor.North.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
-
                     }
                     break;
 
@@ -80,7 +78,6 @@ namespace Sokoban
                     else if (floor.South == null || !(floor.South.getGameObjectType().Equals('#')))
                     {
                         swap(direction);
-
                     }
                     break;
             }
