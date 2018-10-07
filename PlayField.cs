@@ -8,7 +8,6 @@ namespace Sokoban
     public class PlayField
     {
         public Parser Parser { get; private set; }
-        public Floor[,] ground { get; set; }
         public Floor[] floors { get; set; }
         public Floor First { get; set; }
 
