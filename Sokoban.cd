@@ -3,21 +3,21 @@
   <Class Name="Sokoban.Player">
     <Position X="13.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAIAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.MovableObject">
     <Position X="12.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Locations.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Chest" Collapsed="true">
     <Position X="11" Y="8.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAQAQAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAQAAACAAAAIAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -79,21 +79,21 @@
   <Class Name="Sokoban.Floor">
     <Position X="9.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAgAAAAAAAAAAAAAABAAAAEEAAgAAAAAAAAAoBAAQ=</HashCode>
+      <HashCode>AACAgAAAAAAAAAACAAABAAAAEEAAgAAAAAAAAAIBAAQ=</HashCode>
       <FileName>Floor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="GameObject" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.PlayField" Collapsed="true">
+  <Class Name="Sokoban.PlayField">
     <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQwEAAAEgAAAQAAAAAIAAAAACgAQAAAAIAAAAABAAA=</HashCode>
+      <HashCode>AAQgEAAAEgAAAQAAAAAIAAAAAAgAQAAAAIAAAAABAAA=</HashCode>
       <FileName>PlayField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ground" />
+      <Property Name="First" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -109,17 +109,6 @@ namespace Sokoban
             return column + (row * Parser.getNumberColumn());
         } //convert de kolom en de rij naar de index in het item array
 
-        public void print()
-        {
-            for (int i = 0; i < Parser.getNumberOfRows(); i++)
-            {
-                for (int j = 0; j < Parser.getNumberColumn(); j++)
-                {
-                    Console.Write(floors[CalcultateIndex(j, i)].GetType());
-                }
-                Console.WriteLine();
-            }
-        }//print de data uit het item array
 
         public Player getPlayer()
         {
