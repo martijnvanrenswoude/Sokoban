@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Sokoban
+namespace Goudkoorts
 {
-    public abstract class GameObject
+    class GameObject
     {
-        public char ObjectType { get; set; }
     }
 }

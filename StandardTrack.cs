@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class Program
+    class StandardTrack : Track
     {
-        static void Main(string[] args)
+        public StandardTrack(char value, Square square)
         {
-            Game game = new Game();
-            game.start();
+            ObjectType = value;
+            Square = square;
         }
     }
-}
 }

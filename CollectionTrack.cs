@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class Program
+    class CollectionTrack : Track
     {
-        static void Main(string[] args)
+        public CollectionTrack(char value)
         {
-            Game game = new Game();
-            game.start();
+            ObjectType = value;
         }
     }
-}
 }

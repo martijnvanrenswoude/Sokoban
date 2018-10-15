@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class Program
+    class SwitchTrack
     {
-        static void Main(string[] args)
-        {
-            Game game = new Game();
-            game.start();
-        }
     }
-}
 }

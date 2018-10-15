@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Sokoban
+namespace Goudkoorts
 {
-    public class Wall: UnmovableObject
+    class Cart : GameObject
     {
-        public Wall(char type)
+
+        public Cart()
         {
-            ObjectType = type;
+
+
+
         }
     }
 }

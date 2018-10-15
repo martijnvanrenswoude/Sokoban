@@ -2,33 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Sokoban
+namespace Goudkoorts
 {
-    public class InputView
+    class InputView
     {
-        public int ReadLevelInput()
-        {
-            String input = readInput();
-            int level = -1;
-            try{
-                level = int.Parse(input);
-            }catch (Exception e)
-            {
-                Console.WriteLine("> Voer aub een getal in");
-                return -1;
-            }
-            if (level > 0 && level <= 4)
-            {
-                return level;
-            }
-            else
-            {
-                Console.WriteLine("> kies aub een valide level");
-            }
-            return -1;
-        }
-
         private string readInput()
         {
             String input = Console.ReadLine().ToLower();
@@ -36,27 +15,17 @@ namespace Sokoban
             {
                 System.Environment.Exit(1);
             }
-
             return input;
         }
 
-        public String ReadPlayMove()
+        public int ReadPlayMove()
         {
             String input = readInput();
-            switch (input)
+            if (char.IsNumber(input[0]) && input[0] <= 5)
             {
-                case "omlaag":
-                    return "omlaag";
-                case "omhoog":
-                    return "omhoog";
-                case "links":
-                    return "links";
-                case "rechts":
-                    return "rechts";
-                default:
-                    Console.WriteLine("geef een valide waarde in aub");
-                    return "";
+                return int.Parse(Char.ToString(input[0]));
             }
+            return -1;
         }
     }
 }

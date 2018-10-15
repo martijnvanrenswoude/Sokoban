@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class Program
+    class FieldObject
     {
-        static void Main(string[] args)
+
+        public Square Square { get; set; }
+        public Char ObjectType { get; set; }
+
+        public FieldObject()
         {
-            Game game = new Game();
-            game.start();
         }
     }
-}
 }
