@@ -16,7 +16,7 @@ namespace Goudkoorts
 
         private void createCarts()
         {
-            GameObject cart = new Cart(Square.EastS);
+            GameObject cart = new Cart(Square.East);
             if(Square.East.fieldObject is Track)
             {
                 Track d = (Track)Square.East.fieldObject;
