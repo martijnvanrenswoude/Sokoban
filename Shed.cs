@@ -11,11 +11,19 @@ namespace Goudkoorts
         public Shed(char value, Square square)
         {
             ObjectType = value;
+            Square = square;
         }
 
         private void createCarts()
         {
-
+            GameObject cart = new Cart();
+            if(Square.East.fieldObject is Track)
+            {
+                Track d = (Track)Square.East.fieldObject;
+                cart.
+                d.gameObject = cart;
+            }
         }
+
     }
 }

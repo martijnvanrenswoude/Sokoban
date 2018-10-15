@@ -9,9 +9,9 @@ namespace Goudkoorts
     class Cart : GameObject
     {
 
-        public Cart()
+        public Cart(Square square)
         {
-
+            Square = square;
 
 
         }

@@ -8,5 +8,10 @@ namespace Goudkoorts
 {
     class Ship : GameObject
     {
+        public Ship(Square square)
+        {
+            Vierkant = square;
+        }
+
     }
 }
