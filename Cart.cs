@@ -11,7 +11,7 @@ namespace Goudkoorts
 
         public Cart(Square square)
         {
-            Square = square;
+            Vierkant = square;
 
 
         }

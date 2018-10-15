@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-     abstract class GameObject
+     class GameObject
     {
-        Square Vierkant { get; set; }
+        public Square Vierkant { get; set; }
+
+        public GameObject()
+        {
+
+        }
     }
 }
