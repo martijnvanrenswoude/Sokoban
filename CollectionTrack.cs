@@ -8,9 +8,10 @@ namespace Goudkoorts
 {
     class CollectionTrack : Track
     {
-        public CollectionTrack(char value)
+        public CollectionTrack(char value, Square square)
         {
             ObjectType = value;
+            Square = square;
         }
     }
 }

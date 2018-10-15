@@ -19,7 +19,7 @@ namespace Goudkoorts
 
         }
 
-        private void setContent(char value)
+        public void setContent(char value)
         {
             switch (value)
             {

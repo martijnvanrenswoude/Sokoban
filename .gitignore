@@ -4,3 +4,11 @@
 *.ide-wal
 *.ide
 .vs/Goudkoorts/v15/.suo
+*.pdb
+*.exe
+*.cache
+*.txt
+*.cache
+*.config
+*.cache
+obj/Debug/Goudkoorts.csprojAssemblyReference.cache
