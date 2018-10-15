@@ -8,7 +8,7 @@ namespace Goudkoorts
 {
     class InputView
     {
-        private string readInput()
+        public string readInput()
         {
             String input = Console.ReadLine().ToLower();
             if (input.Equals("s"))
