@@ -32,7 +32,7 @@ namespace Goudkoorts
                     break;
 
                 case 'o':
-                    fieldObject = new Water('w');
+                    fieldObject = new Water('w', this);
                     break;
 
                 case 'v':

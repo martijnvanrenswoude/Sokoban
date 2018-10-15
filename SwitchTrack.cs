@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class SwitchTrack
+    class SwitchTrack : Track
     {
+
+        public SwitchTrack(char value, Square square)
+        {
+            ObjectType = value;
+            Square = square;
+        }
     }
 }
