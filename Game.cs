@@ -16,6 +16,7 @@ namespace Goudkoorts
         public void start()
         {
             output.showTutuorial();
+            //fdfadsfsdf
         }
     }
 }
