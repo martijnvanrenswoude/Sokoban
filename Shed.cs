@@ -16,11 +16,10 @@ namespace Goudkoorts
 
         private void createCarts()
         {
-            GameObject cart = new Cart();
+            GameObject cart = new Cart(Square.EastS);
             if(Square.East.fieldObject is Track)
             {
                 Track d = (Track)Square.East.fieldObject;
-                cart.
                 d.gameObject = cart;
             }
         }
