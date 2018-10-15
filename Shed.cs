@@ -11,10 +11,9 @@ namespace Goudkoorts
         public Shed(char value, Square square)
         {
             ObjectType = value;
-            Thread t = new Thread()
         }
 
-        private createCarts()
+        private void createCarts()
         {
 
         }
