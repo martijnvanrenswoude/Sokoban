@@ -1,3 +1,6 @@
 
 *.lock
 *.ide-shm
+*.ide-wal
+*.ide
+.vs/Goudkoorts/v15/.suo
