@@ -11,7 +11,7 @@ namespace Goudkoorts
 
         public Square Square { get; set; }
         public Char ObjectType { get; set; }
-
+        public GameObject GameObject { get; set; }
         public FieldObject()
         {
         }
