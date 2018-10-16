@@ -37,9 +37,58 @@ namespace Goudkoorts
             Console.WriteLine("Press any key to continue");
         }
 
+        private char setSymbol(Square c)
+        {
+            if(c.fieldObject != null)
+            {
+                if(c.fieldObject.GameObject is Ship)
+                {
+                    Ship temp = (Ship)c.fieldObject.GameObject;
+                    return (Char) temp.content;
+                }
+                if (c.fieldObject.GameObject is Cart)
+                {
+                    Cart temp = (Cart)c.fieldObject.GameObject;
+                    if (temp.IsFull)
+                    {
+                        return '0';
+                    }
+                    return 'O';
+                }
+            }
+            else
+            {
+                switch (c.fieldObject.ObjectType)
+                {
+                    case '1':
+                        return '~';
+                    case '3':
+                        return 'K';
+                    case '4':
+                        return '↑';
+                    case '5':
+                        return '→';
+                    case '6':
+                        return '↓';
+                    case '7':
+                        return '←';
+                    case '8':
+                        return '/';
+                    case '9':
+                        return '/';
+
+                    case 'a':
+                        return '<';
+                    case 'b':
+                        return '#';
+                    case 'c':
+                        return ' ';                   
+                }
+            }
+            return 'X';
+        }
         public void showLevel(Square first, int rows,int columns)
         {
-
 
 
 
@@ -49,41 +98,8 @@ namespace Goudkoorts
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
-                {
-                    switch (temp.fieldObject.ObjectType)
-                    {
-                        case '1':
-                            symbol = '~';
-                            break;
-                        case '2':
-                            symbol = '@';
-                            break;
-                        case '3':
-                            symbol = 'K';
-                            break;
-              /*         case '4':
-                            
-                            break;
-                        case '4':
-
-                            break;
-                        case '4':
-
-                            break;
-                        case '4':
-
-                            break;
-                        case '4':
-
-                            break;
-                        case '4':
-
-                            break;
-                        case '4':
-
-                            break;*/
-                    }
-                    Console.Write(symbol);
+                {                   
+                    Console.Write(setSymbol(temp));
                     temp = temp.East;
                 }
                 Console.WriteLine();
