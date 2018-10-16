@@ -39,7 +39,7 @@ namespace Goudkoorts
                 case '3':
                     fieldObject = new StandardTrack('3', this, Track.Direction.W);
 
-                    if(fieldObject is StandardTrack)
+                    if (fieldObject is StandardTrack)
                     {
                         StandardTrack track = (StandardTrack)fieldObject;
                         track.IsDock = true;
@@ -64,11 +64,14 @@ namespace Goudkoorts
 
                 case '1':
                     fieldObject = new Water('1', this);
-     
-               break;
-
-                default:
-                    Console.WriteLine("dlfhsjadhfadjshfasd");
+                    break;
+                case '2':
+                    fieldObject = new Water('1', this);
+                    if (fieldObject is Water)
+                    {
+                        Water water = (Water)fieldObject;
+                        water.generateShip();
+                    }
                     break;
             }
         }
