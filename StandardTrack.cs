@@ -8,6 +8,7 @@ namespace Goudkoorts
 {
     class StandardTrack : Track
     {
+        public bool IsDock { get; set; }
         public StandardTrack(char value, Square square, Direction direction)
         {
             ObjectType = value;
