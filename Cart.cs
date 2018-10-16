@@ -15,5 +15,18 @@ namespace Goudkoorts
 
 
         }
+
+        public override void move()
+        {
+            Track tempTrack = (Track)Vierkant.fieldObject;
+            while (tempTrack.Next != null)
+            {
+                if (tempTrack.Next is Track)
+                {
+                    tempTrack.Next.GameObject = this;
+                    tempTrack.GameObject = null;
+                }
+            }
+        }
     }
 }

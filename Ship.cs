@@ -18,10 +18,7 @@ namespace Goudkoorts
         public override void move()
         {
             FieldObject tempWater = (Water)Vierkant.fieldObject;
-            //if (Vierkant.fieldObject is Water)
-            //{
-            //    tempWater = (Water)Vierkant.fieldObject;
-            //}
+
             while (Vierkant.East != null)
             {
                 if(Vierkant.East.fieldObject is Water)
