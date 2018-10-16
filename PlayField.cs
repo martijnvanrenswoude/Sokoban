@@ -8,12 +8,12 @@ namespace Goudkoorts
 {
     class PlayField
     {
-        private FieldData fieldData;
+        public FieldData fieldData;
         Square[] field;
         public Square First;
 
 
-        PlayField(FieldData fieldData)
+        public PlayField(FieldData fieldData)
         {
             this.fieldData = fieldData;
             field = new Square[fieldData.numberOfItems()];

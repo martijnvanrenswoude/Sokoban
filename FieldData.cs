@@ -8,8 +8,29 @@ namespace Goudkoorts
 {
     class FieldData
     {
-        public String[] data = new string[] { "1aeim", "2bfjn", "3cgko", " dhlp" };
-
+        public String[] data = new String[] {       "111111111111",
+                                                    "211111111111",
+                                                    "777777777377",
+                                                    "ccccccccccc4",
+                                                    "b556c55556c4",
+                                                    "ccc859ccc854",
+                                                    "b554c56c54cc",
+                                                    "cccccc859ccc",
+                                                    "b555554c6556",
+                                                    "aaaaaaaa7777" };
+        // water           --> 1
+        //ship             --> 2
+        //dock             --> 3
+        //track_north      --> 4
+        //track_east       --> 5
+        //track_south      --> 6
+        //track_west       --> 7
+        //switch_to_right  --> 8
+        //switch_to_left   --> 9
+        //collection_track --> a
+        //shed             --> b
+        //space            --> c
+        
         public String[] getData()
         {
             return data;

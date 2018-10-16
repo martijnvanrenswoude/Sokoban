@@ -39,6 +39,10 @@ namespace Goudkoorts
 
         public void showLevel(Square first, int rows,int columns)
         {
+
+
+
+
             char symbol = ' ';
             Square holder = first;
             Square temp = first;
@@ -48,29 +52,35 @@ namespace Goudkoorts
                 {
                     switch (temp.fieldObject.ObjectType)
                     {
-                        case 'w':
+                        case '1':
                             symbol = '~';
                             break;
-                        case 'b':
+                        case '2':
                             symbol = '@';
                             break;
-                        case 'd':
+                        case '3':
                             symbol = 'K';
                             break;
-                        case 's':
+              /*         case '4':
                             
                             break;
-                      /*  case 'v':
-                            symbol = '';
+                        case '4':
+
                             break;
-                        case 'l':
-                            symbol = '';
+                        case '4':
+
                             break;
-                        case 'c':
-                            symbol = '';
+                        case '4':
+
                             break;
-                        case ' ':
-                            symbol = '';
+                        case '4':
+
+                            break;
+                        case '4':
+
+                            break;
+                        case '4':
+
                             break;*/
                     }
                     Console.Write(symbol);
