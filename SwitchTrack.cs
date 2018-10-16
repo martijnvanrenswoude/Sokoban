@@ -9,7 +9,7 @@ namespace Goudkoorts
     class SwitchTrack : Track
     {
 
-        public SwitchTrack(char value, Square square)
+        public SwitchTrack(char value, Square square, Direction direction)
         {
             ObjectType = value;
             Square = square;
