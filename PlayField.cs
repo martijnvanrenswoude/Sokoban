@@ -104,6 +104,63 @@ namespace Goudkoorts
             return column + (row * fieldData.numberOfColumns());
         } //convert de kolom en de rij naar de index in het item array
 
+        private void setNextTracks()
+        {
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+
+            Square temp = First.South.South;
+            Square holder = First.South.South;
+            Track tempTrack = (Track)First.South.South.fieldObject;
+            Track newTempTrack;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                   if(temp.North != null && tempTrack.direction == Track.Direction.N)
+                    {
+                        if(temp.North.fieldObject is Track)
+                        {
+                            newTempTrack = (Track)temp.North.fieldObject;
+                            tempTrack.Next = newTempTrack;
+                        }
+                        
+                    }
+                    if (temp.South != null && tempTrack.direction == Track.Direction.S)
+                    {
+                        if (temp.South.fieldObject is Track)
+                        {
+                            newTempTrack = (Track)temp.South.fieldObject;
+                            tempTrack.Next = newTempTrack;
+                        }
+
+                    }
+                    if (temp.West != null && tempTrack.direction == Track.Direction.W)
+                    {
+                        if (temp.West.fieldObject is Track)
+                        {
+                            newTempTrack = (Track)temp.West.fieldObject;
+                            tempTrack.Next = newTempTrack;
+                        }
+
+                    }
+                    if (temp.East != null && tempTrack.direction == Track.Direction.E)
+                    {
+                        if (temp.East.fieldObject is Track)
+                        {
+                            newTempTrack = (Track)temp.East.fieldObject;
+                            tempTrack.Next = newTempTrack;
+                        }
+
+                    }
+
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+        }
 
 
     }
