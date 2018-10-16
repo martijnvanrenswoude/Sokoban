@@ -37,9 +37,49 @@ namespace Goudkoorts
             Console.WriteLine("Press any key to continue");
         }
 
-        public void showLevel()
+        public void showLevel(Square first, int rows,int columns)
         {
-            Console.WriteLine("Level is not implemented yet");
+            char symbol = ' ';
+            Square holder = first;
+            Square temp = first;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    switch (temp.fieldObject.ObjectType)
+                    {
+                        case 'w':
+                            symbol = '~';
+                            break;
+                        case 'b':
+                            symbol = '@';
+                            break;
+                        case 'd':
+                            symbol = 'K';
+                            break;
+                        case 's':
+                            
+                            break;
+                      /*  case 'v':
+                            symbol = '';
+                            break;
+                        case 'l':
+                            symbol = '';
+                            break;
+                        case 'c':
+                            symbol = '';
+                            break;
+                        case ' ':
+                            symbol = '';
+                            break;*/
+                    }
+                    Console.Write(symbol);
+                    temp = temp.East;
+                }
+                Console.WriteLine();
+                temp = holder.South;
+                holder = holder.South;
+            }
         }
     }
 }

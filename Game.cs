@@ -22,7 +22,7 @@ namespace Goudkoorts
         {
             output.showTutuorial();
             Console.ReadKey();
-            output.showLevel();
+            //output.showLevel();
             
         }
     }
