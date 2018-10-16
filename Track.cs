@@ -8,7 +8,7 @@ namespace Goudkoorts
 {
     abstract class Track : FieldObject
     {
-        public char Direction { get; set; }
+        public enum Direction {N, S, E, W }
         public GameObject gameObject { get; set; }
         public Track Next { get; set; }
 

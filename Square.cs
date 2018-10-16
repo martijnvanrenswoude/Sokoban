@@ -24,9 +24,20 @@ namespace Goudkoorts
             switch (value)
             {
 
-                case 's':
+                case '':
                     fieldObject = new StandardTrack('s', this);
                     break;
+                case '':
+                    fieldObject = new StandardTrack('s', this);
+                    break;
+                case '':
+                    fieldObject = new StandardTrack('s', this);
+                    break;
+                case '':
+                    fieldObject = new StandardTrack('s', this);
+                    break;
+
+
                 case 'l':
                     fieldObject = new Shed('l', this);
                     break;
@@ -42,6 +53,7 @@ namespace Goudkoorts
                 case 'c':
                     fieldObject = new CollectionTrack('c', this);
                     break;
+                
             }
         }
     }

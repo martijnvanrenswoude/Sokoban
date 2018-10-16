@@ -8,7 +8,7 @@ namespace Goudkoorts
 {
     class StandardTrack : Track
     {
-        public StandardTrack(char value, Square square)
+        public StandardTrack(char value, Square square, Direction direction)
         {
             ObjectType = value;
             Square = square;
