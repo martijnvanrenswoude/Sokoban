@@ -8,6 +8,9 @@ namespace Goudkoorts
 {
     class Game
     {
+        public int Score { get; set; }
+
+        public int Time { get; set; }
         private InputView input { get; set; }
         private OutputView output { get; set; }
         public PlayField playField { get; set; }
@@ -23,9 +26,7 @@ namespace Goudkoorts
         public void start()
         {
             output.showTutuorial();
-            Console.ReadKey();
-            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns());
-            
+            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, Time);          
         }
     }
 }

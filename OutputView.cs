@@ -35,10 +35,17 @@ namespace Goudkoorts
             Console.WriteLine("|---------------------------------------------------|");
             Console.WriteLine("");
             Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+
         }
 
         private char setSymbol(Square c)
         {
+            if(c.fieldObject == null)
+            {
+                return ' ';
+            }
             if(c.fieldObject.GameObject != null)
             {
                 if(c.fieldObject.GameObject is Ship)
@@ -65,11 +72,11 @@ namespace Goudkoorts
                     case '3':
                         return 'K';
                     case '4':
-                        return '↑';
+                        return '^';
                     case '5':
                         return '→';
                     case '6':
-                        return '↓';
+                        return 'v';
                     case '7':
                         return '←';
                     case '8':
@@ -81,18 +88,13 @@ namespace Goudkoorts
                         return '<';
                     case 'b':
                         return '#';
-                    case 'c':
-                        return ' ';                   
+                  
                 }
             }
             return 'X';
         }
-        public void showLevel(Square first, int rows,int columns)
+        private void showMap(Square first, int rows,int columns)
         {
-
-
-
-            char symbol = ' ';
             Square holder = first;
             Square temp = first;
             for (int i = 0; i < rows; i++)
@@ -106,6 +108,13 @@ namespace Goudkoorts
                 temp = holder.South;
                 holder = holder.South;
             }
+        }
+
+        public void showLevel(Square first, int rows, int columns, int score, int time)
+        {
+            Console.Clear();
+            Console.WriteLine("Score: " + score + " || Time: " + time);
+            showMap(first, rows, columns);
         }
     }
 }
