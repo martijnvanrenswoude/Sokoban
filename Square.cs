@@ -65,7 +65,11 @@ namespace Goudkoorts
                 case '1':
                     fieldObject = new Water('1', this);
      
-               break;  
+               break;
+
+                default:
+                    Console.WriteLine("dlfhsjadhfadjshfasd");
+                    break;
             }
         }
     }

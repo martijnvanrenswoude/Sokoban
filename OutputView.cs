@@ -39,7 +39,7 @@ namespace Goudkoorts
 
         private char setSymbol(Square c)
         {
-            if(c.fieldObject != null)
+            if(c.fieldObject.GameObject != null)
             {
                 if(c.fieldObject.GameObject is Ship)
                 {

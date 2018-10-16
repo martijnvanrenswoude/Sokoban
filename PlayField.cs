@@ -16,7 +16,8 @@ namespace Goudkoorts
         public PlayField(FieldData fieldData)
         {
             this.fieldData = fieldData;
-            field = new Square[fieldData.numberOfItems()];
+            makeItems();
+            setAllRows();
         }
 
         private void makeItems()
@@ -26,6 +27,7 @@ namespace Goudkoorts
             {
                 field[i] = new Square();
             }
+            First = field[0];
         } // maak het item array
 
         private void setAllRows()
