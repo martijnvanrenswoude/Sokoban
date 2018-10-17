@@ -11,6 +11,7 @@ namespace Goudkoorts
         public FieldData fieldData;
         Square[] field;
         public Square First;
+        public SwitchTrack[] Switches { get; set; }
 
 
         public PlayField(FieldData fieldData)
@@ -162,6 +163,42 @@ namespace Goudkoorts
             }
         }
 
+        public SwitchTrack[] getSwitches()
+        {
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+            Square temp = First;
+            Square holder = First;
 
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (temp.fieldObject is SwitchTrack)
+                    {
+                        SwitchTrack tempObject = (SwitchTrack)temp.fieldObject;
+                        addSwitch(tempObject);
+                    }
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+            return Switches;
+        }
+
+        private void addSwitch(SwitchTrack wissel)
+        {
+
+            for (int i = 0; i < Switches.Length; i++)
+            {
+                if(Switches[i] == null)
+                {
+                    Switches[i] = wissel;
+                    break;
+                }
+            }
+
+        }
     }
 }
