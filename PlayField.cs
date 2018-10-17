@@ -20,7 +20,9 @@ namespace Goudkoorts
             makeItems();
             setAllRows();
             Switches = new SwitchTrack[5];
+            setSwitches();
             Sheds = new Shed[3];
+            setSheds();
         }
 
         private void makeItems()
@@ -165,7 +167,7 @@ namespace Goudkoorts
             }
         }
 
-        public void getSwitches()
+        public void setSwitches()
         {
             int rows = fieldData.numberOfRows();
             int columns = fieldData.numberOfColumns();
@@ -202,7 +204,7 @@ namespace Goudkoorts
 
         }
 
-        public void GetSheds()
+        public void setSheds()
         {
             int rows = fieldData.numberOfRows();
             int columns = fieldData.numberOfColumns();

@@ -16,10 +16,13 @@ namespace Goudkoorts
         private Thread ViewRefresh;
 
         private Thread CartSpawn;
-        public int Score { get; set; }
 
+        public int Score { get; set; }
         public int TickDuration { get; set; }
-        public int Time { get; set; }
+
+        public int ShedInterval { get; set; }
+        public int TimeTillTick { get; set; }
+        public int SpawnInterval {get;set;}
         private InputView input { get; set; }
         private OutputView output { get; set; }
         public PlayField playField { get; set; }
@@ -28,41 +31,41 @@ namespace Goudkoorts
         public Game()
         {
             //vars
+            ShedInterval = 7000;
             TickDuration = 5000;
-            Time = TickDuration;
+            TimeTillTick = TickDuration;
             //instances
-            input = new InputView();
-            output = new OutputView();
+            input =     new InputView();
+            output =    new OutputView();
             fieldData = new FieldData();
             playField = new PlayField(fieldData);
             //threads
-            GameTick = new Thread(new ThreadStart(TickTimer));
-            Timer = new Thread(new ThreadStart(timer));
-            ViewRefresh = new Thread(new ThreadStart(Draw));
-
-            
+            GameTick =      new Thread(new ThreadStart(TickTimer));
+            Timer =         new Thread(new ThreadStart(timer));
+            ViewRefresh =   new Thread(new ThreadStart(Draw));
+            CartSpawn =     new Thread(new ThreadStart(SpawnTimer));            
         }
         public void start()
         {
             //output
             output.showTutuorial();
-            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, Time);
+            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
             //thread startss
             ViewRefresh.Start();
             GameTick.Start();
             Timer.Start();
-            
+            CartSpawn.Start();            
         }
 
         private void SpawnTimer()
         {
             Random r = new Random();
+            Shed s;
             while (true)
             {
-                Thread.Sleep(cartInterval);
-                Thread.Sleep(r.Next(cartInterval / 10));
-
-                cartInterval -= 200;
+                Thread.Sleep(ShedInterval);
+                s = (Shed)playField.Sheds[r.Next(3)];
+                s.createCart();
             }
         }
 
@@ -77,7 +80,7 @@ namespace Goudkoorts
             while (true)
             {
                 Thread.Sleep(1000);
-                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, Time/1000);
+                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick/1000);
             }
         }
 
@@ -96,11 +99,11 @@ namespace Goudkoorts
             while (true)
             {
                 Thread.Sleep(100);
-                if (Time - 100 <= 0)
+                if (TimeTillTick - 100 <= 0)
                 {
-                    Time = TickDuration;
+                    TimeTillTick = TickDuration;
                 }
-                Time -= 100;
+                TimeTillTick -= 100;
             }
         }
     }
