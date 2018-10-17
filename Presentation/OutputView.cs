@@ -114,7 +114,7 @@ namespace Goudkoorts
         {
             Console.Clear();
             Console.WriteLine("Score: " + score + " || Time: " + time);
-            //showMap(first, rows, columns);
+            showMap(first, rows, columns);
         }
     }
 }
