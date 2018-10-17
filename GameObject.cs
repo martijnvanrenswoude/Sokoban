@@ -12,6 +12,8 @@ namespace Goudkoorts
         public bool isDone { get; set; }
         public bool IsFull { get; set; }
 
+        public bool CanMove { get; set; }
+
         public GameObject()
         { 
         }
