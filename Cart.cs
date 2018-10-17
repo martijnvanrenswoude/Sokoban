@@ -8,11 +8,11 @@ namespace Goudkoorts
 {
     class Cart : GameObject
     {
-
         public Cart(Square square)
         {
             Vierkant = square;
-
+            IsFull = true;
+            CanMove = true;
 
         }
 

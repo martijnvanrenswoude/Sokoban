@@ -12,6 +12,7 @@ namespace Goudkoorts
         public Ship(Square square)
         {
             Vierkant = square;
+            CanMove = true;
         }
 
 
@@ -19,7 +20,7 @@ namespace Goudkoorts
         {
             FieldObject tempWater = (Water)Vierkant.fieldObject;
 
-            while (Vierkant.East != null)
+            if (Vierkant.East != null && !isDocked())
             {
                 if(Vierkant.East.fieldObject is Water)
                 {
@@ -31,6 +32,18 @@ namespace Goudkoorts
             if(Vierkant.East == null)
             {
                 isDone = true;
+            }
+        }
+
+        private bool isDocked()
+        {
+            StandardTrack tempTrack = (StandardTrack)Vierkant.South.fieldObject;
+            if (tempTrack.IsDock && !IsFull) {
+               return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
