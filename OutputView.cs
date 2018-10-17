@@ -20,10 +20,10 @@ namespace Goudkoorts
             Console.WriteLine("|    o  : wagen               |  weg te sturen      |");
             Console.WriteLine("|    0  : wagen met inhoud    |                     |");
             Console.WriteLine("|    #  : loods               |                     |");
-            Console.WriteLine("|    →  : baanvak met richting|                     |");
+            Console.WriteLine("|    >  : baanvak met richting|                     |");
             Console.WriteLine("|    /  : wissel omhoog       |                     |");
             Console.WriteLine("|    \\  : wissel omlaag       |                     |");
-            Console.WriteLine("|    <  : rangeerterrein      |                     |");
+            Console.WriteLine("|    _  : rangeerterrein      |                     |");
             Console.WriteLine("|---------------------------------------------------|");
             Console.WriteLine("| Besturing                                         |");
             Console.WriteLine("| <s>   : stop het spel                             |");
@@ -74,18 +74,18 @@ namespace Goudkoorts
                     case '4':
                         return '^';
                     case '5':
-                        return '→';
+                        return '>';
                     case '6':
                         return 'v';
                     case '7':
-                        return '←';
+                        return '<';
                     case '8':
                         return '/';
                     case '9':
                         return '/';
 
                     case 'a':
-                        return '<';
+                        return '_';
                     case 'b':
                         return '#';
                   

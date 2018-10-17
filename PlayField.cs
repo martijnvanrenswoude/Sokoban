@@ -238,5 +238,30 @@ namespace Goudkoorts
                 }
             }
         }
+
+        public Cart[] FindCarts()
+        {
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+            Square temp = First;
+            Square holder = First;
+            List<Cart> carts = new List<Cart>();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if(temp.fieldObject != null && temp.fieldObject.GameObject is Cart)
+                    {
+                        Cart tempObject = (Cart)temp.fieldObject.GameObject;
+                        carts.Add(tempObject);
+                    }              
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+            Cart[] c = carts.ToArray();
+            return c;
+        }
     }
 }

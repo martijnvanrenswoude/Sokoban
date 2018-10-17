@@ -63,15 +63,15 @@ namespace Goudkoorts
             Shed s;
             while (true)
             {
-                Thread.Sleep(ShedInterval);
                 s = (Shed)playField.Sheds[r.Next(3)];
                 s.createCart();
+                Thread.Sleep(ShedInterval);
             }
         }
 
         public void doTick()
         {
-            
+            moveAllCarts();
         }
 
         //thread methods
@@ -89,7 +89,11 @@ namespace Goudkoorts
             while (true)
             {
                 Thread.Sleep(TickDuration);
-                TickDuration -= 50;
+                doTick();
+                if(TickDuration > 1000)
+                {
+                    TickDuration -= 50;
+                }                
                 Score++;
             }
         }
@@ -104,6 +108,15 @@ namespace Goudkoorts
                     TimeTillTick = TickDuration;
                 }
                 TimeTillTick -= 100;
+            }
+        }
+
+        private void moveAllCarts()
+        {
+            Cart[] c = playField.FindCarts();
+            for(int i=0; i<c.Length; i++)
+            {
+                c[i].move();
             }
         }
     }
