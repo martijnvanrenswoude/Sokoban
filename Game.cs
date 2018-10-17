@@ -39,6 +39,7 @@ namespace Goudkoorts
             output =    new OutputView();
             fieldData = new FieldData();
             playField = new PlayField(fieldData);
+            
             //threads
             GameTick =      new Thread(new ThreadStart(TickTimer));
             Timer =         new Thread(new ThreadStart(timer));
@@ -79,22 +80,22 @@ namespace Goudkoorts
         {
             while (true)
             {
-                Thread.Sleep(1000);
-                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick/1000);
+                Thread.Sleep(10);
+                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
             }
         }
 
         private void TickTimer()
         {
-            while (true)
+            while(true)
             {
                 Thread.Sleep(TickDuration);
                 doTick();
                 if(TickDuration > 1000)
-                {
+                {        
                     TickDuration -= 50;
                 }                
-                Score++;
+                Score = TickDuration;
             }
         }
 
