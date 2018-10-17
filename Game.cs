@@ -51,7 +51,7 @@ namespace Goudkoorts
 
         public void doTick()
         {
-
+            
         }
 
         //thread methods
