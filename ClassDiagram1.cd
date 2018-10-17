@@ -1,37 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Goudkoorts.Cart" Collapsed="true">
-    <Position X="7.25" Y="8.5" Width="1.5" />
+    <Position X="7.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.CollectionTrack" Collapsed="true">
-    <Position X="2" Y="8.5" Width="1.5" />
+    <Position X="2" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CollectionTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.FieldData" Collapsed="true">
-    <Position X="6.25" Y="2" Width="1.5" />
+    <Position X="6" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAQAAAAAAAAAAACgAAAAAgAAAAAgAAAAAAQAAAAAAA=</HashCode>
       <FileName>FieldData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.FieldObject" Collapsed="true">
-    <Position X="3.75" Y="5.25" Width="1.5" />
+    <Position X="3.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAIAAAA=</HashCode>
       <FileName>FieldObject.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameObject" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="Goudkoorts.Game">
+  <Class Name="Goudkoorts.Game" Collapsed="true">
     <Position X="3.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAQAACAQAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAggAAAAAQAACAQCABAAAAgBAAAAIQA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -42,7 +45,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.GameObject" Collapsed="true">
-    <Position X="8.5" Y="7.25" Width="1.5" />
+    <Position X="8.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAACAAAAEAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
@@ -58,14 +61,14 @@
   <Class Name="Goudkoorts.OutputView" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAAABCAAAA=</HashCode>
       <FileName>OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.PlayField" Collapsed="true">
-    <Position X="3.75" Y="3.25" Width="1.5" />
+    <Position X="3.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAEAAAEgAAAQAAAAAAAAAAAAwAQAAAAIAAAAABAAA=</HashCode>
+      <HashCode>AAGAEAAAEgAAAQAAAAAAAAAAAAwAQAAAAIAAAAABAAA=</HashCode>
       <FileName>PlayField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -73,14 +76,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Shed" Collapsed="true">
-    <Position X="5.5" Y="7" Width="1.5" />
+    <Position X="5.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Shed.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Square" Collapsed="true">
-    <Position X="3.75" Y="4.25" Width="1.5" />
+    <Position X="3.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAACEAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
       <FileName>Square.cs</FileName>
@@ -90,37 +93,37 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.StandardTrack" Collapsed="true">
-    <Position X="3.75" Y="8.5" Width="1.5" />
+    <Position X="3.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>StandardTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.SwitchTrack" Collapsed="true">
-    <Position X="5.5" Y="8.5" Width="1.5" />
+    <Position X="5.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Track" Collapsed="true">
-    <Position X="3.75" Y="7" Width="1.5" />
+    <Position X="3.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Track.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Water" Collapsed="true">
-    <Position X="2" Y="7" Width="1.5" />
+    <Position X="2" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Water.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Ship" Collapsed="true">
-    <Position X="9.5" Y="8.5" Width="1.5" />
+    <Position X="9.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Ship.cs</FileName>
     </TypeIdentifier>
   </Class>

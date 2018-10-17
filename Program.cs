@@ -12,7 +12,6 @@ namespace Goudkoorts
         {
             Game game = new Game();
             game.start();
-            Console.ReadKey();
         }
     }
 }
