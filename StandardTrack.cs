@@ -14,5 +14,15 @@ namespace Goudkoorts
             ObjectType = value;
             Square = square;
         }
+
+        public void TransferGold()
+        {
+            Ship ship = (Ship)Square.North.fieldObject.GameObject;
+            if (this.GameObject != null && ship != null)
+            {
+                this.GameObject.IsFull = false;
+                ship.AddGold();
+            }
+        }
     }
 }

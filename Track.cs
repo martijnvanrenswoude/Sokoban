@@ -10,7 +10,6 @@ namespace Goudkoorts
     {
         public enum Direction {N, S, E, W }
         public Direction direction { get; set; }
-        public GameObject gameObject { get; set; }
         public Track Next { get; set; }
         
 

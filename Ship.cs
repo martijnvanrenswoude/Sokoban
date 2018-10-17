@@ -11,6 +11,7 @@ namespace Goudkoorts
         public int content { get; set; }
         public Ship(Square square)
         {
+            int content = 0;
             Vierkant = square;
             CanMove = true;
         }
@@ -45,6 +46,16 @@ namespace Goudkoorts
             {
                 return false;
             }
+        }
+
+        public void AddGold()
+        {
+            content++;
+            if(content >= 8)
+            {
+                IsFull = true;
+            }
+             
         }
     }
 }
