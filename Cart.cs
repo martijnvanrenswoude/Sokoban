@@ -26,6 +26,7 @@ namespace Goudkoorts
                 {
                     tempTrack.Next.GameObject = this;
                     tempTrack.GameObject = null;
+                    Vierkant = tempTrack.Square;
                 }
             }
             else
