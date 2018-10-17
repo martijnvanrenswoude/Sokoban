@@ -12,13 +12,15 @@ namespace Goudkoorts
         Square[] field;
         public Square First;
         public SwitchTrack[] Switches { get; set; }
-
-
+        
+        public Shed[] Sheds { get; set; }
         public PlayField(FieldData fieldData)
         {
             this.fieldData = fieldData;
             makeItems();
             setAllRows();
+            Switches = new SwitchTrack[5];
+            Sheds = new Shed[3];
         }
 
         private void makeItems()
@@ -163,7 +165,7 @@ namespace Goudkoorts
             }
         }
 
-        public SwitchTrack[] getSwitches()
+        public void getSwitches()
         {
             int rows = fieldData.numberOfRows();
             int columns = fieldData.numberOfColumns();
@@ -184,7 +186,6 @@ namespace Goudkoorts
                 temp = holder.South;
                 holder = holder.South;
             }
-            return Switches;
         }
 
         private void addSwitch(SwitchTrack wissel)
@@ -199,6 +200,41 @@ namespace Goudkoorts
                 }
             }
 
+        }
+
+        public void GetSheds()
+        {
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+            Square temp = First;
+            Square holder = First;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (temp.fieldObject is Shed)
+                    {
+                        Shed tempObject = (Shed)temp.fieldObject;
+                        addShed(tempObject);
+                    }
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+        }
+
+        private void addShed(Shed schuur)
+        {
+            for (int i = 0; i < Sheds.Length; i++)
+            {
+                if (Sheds[i] == null)
+                {
+                    Sheds[i] = schuur;
+                    break;
+                }
+            }
         }
     }
 }

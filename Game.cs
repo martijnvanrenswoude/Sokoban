@@ -14,6 +14,8 @@ namespace Goudkoorts
         private Thread Timer;
 
         private Thread ViewRefresh;
+
+        private Thread CartSpawn;
         public int Score { get; set; }
 
         public int TickDuration { get; set; }
@@ -37,6 +39,8 @@ namespace Goudkoorts
             GameTick = new Thread(new ThreadStart(TickTimer));
             Timer = new Thread(new ThreadStart(timer));
             ViewRefresh = new Thread(new ThreadStart(Draw));
+
+            
         }
         public void start()
         {
@@ -47,6 +51,19 @@ namespace Goudkoorts
             ViewRefresh.Start();
             GameTick.Start();
             Timer.Start();
+            
+        }
+
+        private void SpawnTimer()
+        {
+            Random r = new Random();
+            while (true)
+            {
+                Thread.Sleep(cartInterval);
+                Thread.Sleep(r.Next(cartInterval / 10));
+
+                cartInterval -= 200;
+            }
         }
 
         public void doTick()
