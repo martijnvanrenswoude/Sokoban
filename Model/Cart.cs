@@ -20,7 +20,12 @@ namespace Goudkoorts
         public override void move()
         {
             Track currentTrack = (Track)Vierkant.fieldObject;
-            if (currentTrack.Next != null)
+            if(currentTrack.Next == null)
+            {
+                CanMove = false;
+            }
+
+            if (currentTrack.Next != null && currentTrack.Next.GameObject == null)
             {
                 currentTrack.Next.GameObject = this;
                 currentTrack.GameObject = null;
@@ -31,9 +36,6 @@ namespace Goudkoorts
             {
                 currentTrack.GameObject = null;
                 HasMoved = true;
-            }
-            if((currentTrack.Next.GameObject != null && currentTrack is CollectionTrack)){
-                return;
             }
         }
 
