@@ -51,9 +51,8 @@ namespace Goudkoorts
                 if(c.fieldObject.GameObject is Ship)
                 {
                     Ship temp = (Ship)c.fieldObject.GameObject;
-                    int y = temp.content+5;
-                    char ship = (char)y;
-                    return ship;
+                    char[] t = temp.content.ToString().ToCharArray();
+                    return t[0];
                     
                 }
                 if (c.fieldObject.GameObject is Cart)
@@ -85,7 +84,7 @@ namespace Goudkoorts
                     case '8':
                         return '/';
                     case '9':
-                        return '/';
+                        return '\\';
 
                     case 'a':
                         return '_';

@@ -18,6 +18,33 @@ namespace Goudkoorts
             this.direction = direction;
         }
 
+        public void setObjectType()
+        {
+            if(ObjectType == '8'){
+                if(TrackOne.Next == this)
+                {
+                    ObjectType = '9';
+                }
+            } else if(ObjectType == '9')
+            {
+                if(this.Next == TrackOne)
+                {
+                    ObjectType = '8';
+                }
+            }
+        }
+
+        private void toggleObjectType()
+        {
+            if(ObjectType == '8')
+            {
+                ObjectType = '9';
+            }else if(ObjectType == '9')
+            {
+                ObjectType = '8';
+            }
+        }
+
         public void doSwitching()
         {
             switch (direction)
@@ -29,8 +56,8 @@ namespace Goudkoorts
                 case Direction.E:
                     doSwitchEast();
                     break;
-
             }
+            toggleObjectType();
             
         }
 

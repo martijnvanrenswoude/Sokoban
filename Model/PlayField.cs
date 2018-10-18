@@ -9,24 +9,27 @@ namespace Goudkoorts
     class PlayField
     {
         public FieldData fieldData;
+
         Square[] field;
         public Square First;
-        public SwitchTrack[] Switches { get; set; }
 
+        //game objects
+        public SwitchTrack[] Switches { get; set; }
         public Shed[] Sheds { get; set; }
+        public Ship ship { get; set; }
+        public StandardTrack dock { get; set; }
         public PlayField(FieldData fieldData)
         {
             this.fieldData = fieldData;
             makeItems();
             setAllRows();
+            //set objects
             Switches = new SwitchTrack[5];
-            setSwitches();
             Sheds = new Shed[3];
-            setSheds();
+            getObjects();
             setNextTracks();
             setSwitchData();
-            Track[] tracks = getAllTracks();
-            
+            Track[] tracks = getAllTracks(); 
         }
 
         private void makeItems()
@@ -255,28 +258,6 @@ namespace Goudkoorts
             }*/
         }
 
-        public void setSwitches()
-        {
-            int rows = fieldData.numberOfRows();
-            int columns = fieldData.numberOfColumns();
-            Square temp = First;
-            Square holder = First;
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
-                {
-                    if (temp.fieldObject is SwitchTrack)
-                    {
-                        SwitchTrack tempObject = (SwitchTrack)temp.fieldObject;
-                        addSwitch(tempObject);
-                    }
-                    temp = temp.East;
-                }
-                temp = holder.South;
-                holder = holder.South;
-            }
-        }
 
         private void addSwitch(SwitchTrack wissel)
         {
@@ -292,7 +273,7 @@ namespace Goudkoorts
 
         }
 
-        public void setSheds()
+        public void getObjects()
         {
             int rows = fieldData.numberOfRows();
             int columns = fieldData.numberOfColumns();
@@ -307,6 +288,23 @@ namespace Goudkoorts
                     {
                         Shed tempObject = (Shed)temp.fieldObject;
                         addShed(tempObject);
+                    }
+                    if (temp.fieldObject is SwitchTrack)
+                    {
+                        SwitchTrack tempObject = (SwitchTrack)temp.fieldObject;
+                        addSwitch(tempObject);
+                    }
+                    if(temp.fieldObject != null && temp.fieldObject.GameObject is Ship)
+                    {
+                        ship = (Ship)temp.fieldObject.GameObject;
+                    }
+                    if(temp.fieldObject is StandardTrack)
+                    {
+                        StandardTrack tempObject = (StandardTrack)temp.fieldObject;
+                        if (tempObject.IsDock)
+                        {
+                            dock = tempObject;
+                        }
                     }
                     temp = temp.East;
                 }
@@ -367,6 +365,7 @@ namespace Goudkoorts
                         Switches[i].TrackOne = a;
                         Switches[i].TrackTwo = b;
                         Switches[i].Next = a;
+                        Switches[i].setObjectType();
                     }
 
                 }
@@ -381,6 +380,7 @@ namespace Goudkoorts
                         Switches[i].TrackTwo = b;
                         b.Next = null;
                         a.Next = Switches[i];
+                        Switches[i].setObjectType();
                     }
                 }
             }
