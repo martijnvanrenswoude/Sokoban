@@ -19,7 +19,7 @@ namespace Goudkoorts
         public void TransferGold()
         {
             Ship ship = (Ship)Square.North.fieldObject.GameObject;
-            if (this.GameObject != null && ship != null)
+            if (this.GameObject != null && ship != null && this.IsDock)
             {
                 this.GameObject.IsFull = false;
                 ship.AddGold();
