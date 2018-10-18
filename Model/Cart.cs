@@ -23,7 +23,7 @@ namespace Goudkoorts
             {
                 currentTrack.Next.GameObject = this;
                 currentTrack.GameObject = null;
-                
+                Vierkant = currentTrack.Next.Square;
             }
 
 

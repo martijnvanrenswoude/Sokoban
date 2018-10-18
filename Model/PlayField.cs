@@ -24,7 +24,9 @@ namespace Goudkoorts
             Sheds = new Shed[3];
             setSheds();
             setNextTracks();
+            setSwitchData();
             Track[] tracks = getAllTracks();
+            
         }
 
         private void makeItems()
@@ -348,6 +350,40 @@ namespace Goudkoorts
             }
             Cart[] c = carts.ToArray();
             return c;
+        }
+
+        private void setSwitchData()
+        {
+            for (int i = 0; i < Switches.Length; i++)
+            {
+                if (Switches[i].direction == Track.Direction.N)
+                {
+                    Square tempSquare = Switches[i].Square;
+
+                    if (tempSquare.North.fieldObject is Track && tempSquare.South.fieldObject is Track)
+                    {
+                        StandardTrack a = (StandardTrack)tempSquare.North.fieldObject;
+                        StandardTrack b = (StandardTrack)tempSquare.South.fieldObject;
+                        Switches[i].TrackOne = a;
+                        Switches[i].TrackTwo = b;
+                        Switches[i].Next = a;
+                    }
+
+                }
+                else if (Switches[i].direction == Track.Direction.E)
+                {
+                    Square tempSquare = Switches[i].Square;
+                    if (tempSquare.North.fieldObject is Track && tempSquare.South.fieldObject is Track)
+                    {
+                        StandardTrack a = (StandardTrack)tempSquare.North.fieldObject;
+                        StandardTrack b = (StandardTrack)tempSquare.South.fieldObject;
+                        Switches[i].TrackOne = a;
+                        Switches[i].TrackTwo = b;
+                        b.Next = null;
+                        a.Next = Switches[i];
+                    }
+                }
+            }
         }
     }
 }
