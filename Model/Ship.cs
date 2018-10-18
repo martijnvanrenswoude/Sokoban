@@ -19,10 +19,10 @@ namespace Goudkoorts
         public override bool move()
         {
             FieldObject tempWater = (Water)Vierkant.fieldObject;
-
+            
             if (Vierkant.East != null && !isDocked())
             {
-                if(Vierkant.East.fieldObject is Water)
+                if(Vierkant.East.fieldObject is Water && Vierkant.East.fieldObject.GameObject == null)
                 {
                     FieldObject w = (Water)Vierkant.East.fieldObject;
                     w.GameObject = this;

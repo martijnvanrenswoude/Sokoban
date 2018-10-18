@@ -12,6 +12,7 @@ namespace Goudkoorts
         {
             ObjectType = value;
             Square = square;
+            this.direction = direction;
         }
     }
 }
