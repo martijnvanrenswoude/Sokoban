@@ -11,13 +11,12 @@ namespace Goudkoorts
         public int content { get; set; }
         public Ship(Square square)
         {
-            int content = 0;
+            content = 0;
             Vierkant = square;
-            CanMove = true;
         }
 
 
-        public override void move()
+        public override bool move()
         {
             FieldObject tempWater = (Water)Vierkant.fieldObject;
 
@@ -36,6 +35,7 @@ namespace Goudkoorts
                 isDone = true;
                 Vierkant.fieldObject.GameObject = null;
             }
+            return true;
         }
 
         private bool isDocked()

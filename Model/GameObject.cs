@@ -11,13 +11,13 @@ namespace Goudkoorts
         public Square Vierkant { get; set; }
         public bool isDone { get; set; }
         public bool IsFull { get; set; }
-
         public bool CanMove { get; set; }
 
+        
         public GameObject()
         { 
         }
 
-        public abstract void move();
+        public abstract bool move();
     }
 }

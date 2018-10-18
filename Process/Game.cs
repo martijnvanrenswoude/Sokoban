@@ -20,6 +20,8 @@ namespace Goudkoorts
         public int TickDuration { get; set; }
         public int TimeTillTick { get; set; }
         public int TickNumber { get; set; }
+
+        private bool hasWon;
         //other classes
         private InputView input { get; set; }
         private OutputView output { get; set; }
@@ -32,6 +34,7 @@ namespace Goudkoorts
             TickDuration = 3000;
             TimeTillTick = TickDuration;
             TickNumber = 0;
+            hasWon = false;
             //instances
             input =     new InputView();
             output =    new OutputView();
@@ -58,10 +61,10 @@ namespace Goudkoorts
         private void SpawnCart()
         {
             Random r = new Random();
-            int factor = r.Next(6);
+            int factor = r.Next(3);
             if(factor <= 2)
             {
-                Shed s = (Shed)playField.Sheds[r.Next(3)];
+                Shed s = (Shed)playField.Sheds[1];
                 s.createCart();
             }
         }
@@ -88,23 +91,26 @@ namespace Goudkoorts
             while (true)
             {
                 int move = input.ReadPlayMove();
-                switch (move)
+                if (!hasWon)
                 {
-                    case 1:
-                        playField.Switches[move-1].doSwitching();
-                        break;
-                    case 2:
-                        playField.Switches[move - 1].doSwitching();
-                        break;
-                    case 3:
-                        playField.Switches[move - 1].doSwitching();
-                        break;
-                    case 4:
-                        playField.Switches[move - 1].doSwitching();
-                        break;
-                    case 5:
-                        playField.Switches[move - 1].doSwitching();
-                        break;
+                    switch (move)
+                    {
+                        case 1:
+                            playField.Switches[move - 1].doSwitching();
+                            break;
+                        case 2:
+                            playField.Switches[move - 1].doSwitching();
+                            break;
+                        case 3:
+                            playField.Switches[move - 1].doSwitching();
+                            break;
+                        case 4:
+                            playField.Switches[move - 1].doSwitching();
+                            break;
+                        case 5:
+                            playField.Switches[move - 1].doSwitching();
+                            break;
+                    }
                 }
 
             }
@@ -112,17 +118,21 @@ namespace Goudkoorts
         private void TickTimer()
         {
             int factor = 0;
-            while(true)
+            while(!hasWon)
             {
                 Thread.Sleep(TickDuration-factor);
                 doTick();
-                factor = 50 * Score;
+                if(factor <= TickDuration / 4)
+                {
+                    factor = 50 * Score;
+                }
+                
             }
         }
 
         private void timer()
         {
-            while (true)
+            while (!hasWon)
             {
                 Thread.Sleep(1000);
                 if (TimeTillTick <= 1000)
@@ -142,13 +152,9 @@ namespace Goudkoorts
                 if (!c[i].HasMoved)
                 {
                     Track t = (Track)c[i].Vierkant.fieldObject;
-                    if(t.Next != null && t.Next.GameObject == null)
+                    if (!c[i].move())
                     {
-                        if (c[i].CheckCollision())
-                        {
-                            endGame();
-                        }
-                        c[i].move();
+                        endGame();
                     }
                 }           
             }
@@ -161,10 +167,11 @@ namespace Goudkoorts
         private void endGame()
         {
             //threads
-            GameTick.Abort();
-            Timer.Abort();
-            HandleInput.Abort();
+
+            GameTick = null;
+            Timer = null;
+            HandleInput = null;
             output.endGameMessage(Score);
-    }
+        }
     }
 }
