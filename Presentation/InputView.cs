@@ -8,10 +8,10 @@ namespace Goudkoorts
 {
     class InputView
     {
-        public string readInput()
+        public ConsoleKey readInput()
         {
-            String input = Console.ReadLine().ToLower();
-            if (input.Equals("s"))
+            ConsoleKey input = Console.ReadKey().Key;
+            if (input == ConsoleKey.S )
             {
                 System.Environment.Exit(1);
             }
@@ -20,12 +20,22 @@ namespace Goudkoorts
 
         public int ReadPlayMove()
         {
-            String input = readInput();
-            if (char.IsNumber(input[0]) && input[0] <= 5)
+            ConsoleKey input = readInput();
+            switch (input)
             {
-                return int.Parse(Char.ToString(input[0]));
+                case ConsoleKey.D1:
+                    return 1;
+                case ConsoleKey.D2:
+                    return 2;
+                case ConsoleKey.D3:
+                    return 3;
+                case ConsoleKey.D4:
+                    return 4;
+                case ConsoleKey.D5:
+                    return 5;
+                default:
+                    return -1;
             }
-            return -1;
         }
     }
 }

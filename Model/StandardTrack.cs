@@ -16,14 +16,16 @@ namespace Goudkoorts
             this.direction = direction;
         }
 
-        public void TransferGold()
+        public bool TransferGold()
         {
             Ship ship = (Ship)Square.North.fieldObject.GameObject;
             if (this.GameObject != null && ship != null && this.IsDock)
             {
                 this.GameObject.IsFull = false;
                 ship.AddGold();
+                return true;
             }
+            return false;
         }
     }
 }

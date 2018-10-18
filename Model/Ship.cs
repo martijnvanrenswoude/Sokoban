@@ -28,6 +28,7 @@ namespace Goudkoorts
                     FieldObject w = (Water)Vierkant.East.fieldObject;
                     w.GameObject = this;
                     tempWater.GameObject = null;
+                    Vierkant = Vierkant.East;
                 }
             }
             if(Vierkant.East == null)

@@ -60,7 +60,7 @@ namespace Goudkoorts
                     Cart temp = (Cart)c.fieldObject.GameObject;
                     if (temp.IsFull)
                     {
-                        return '0';
+                        return 'X';
                     }
                     return 'O';
                 }

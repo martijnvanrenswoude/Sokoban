@@ -9,18 +9,17 @@ namespace Goudkoorts
 {
     class Game
     {
+        //threads
         private Thread GameTick;
 
         private Thread Timer;
 
-        private Thread ViewRefresh;
-
-
+        private Thread HandleInput;
+        //game info vars
         public int Score { get; set; }
         public int TickDuration { get; set; }
-
         public int TimeTillTick { get; set; }
-        public int SpawnInterval {get;set;}
+        //other classes
         private InputView input { get; set; }
         private OutputView output { get; set; }
         public PlayField playField { get; set; }
@@ -40,7 +39,7 @@ namespace Goudkoorts
             //threads
             GameTick =      new Thread(new ThreadStart(TickTimer));
             Timer =         new Thread(new ThreadStart(timer));
-            ViewRefresh =   new Thread(new ThreadStart(Draw));      
+            HandleInput =   new Thread(new ThreadStart(handleInput));      
         }
         public void start()
         {
@@ -48,9 +47,10 @@ namespace Goudkoorts
             output.showTutuorial();
             output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
             //threads start
-            ViewRefresh.Start();
+            HandleInput.Start();
             GameTick.Start();
             Timer.Start();
+
         }
 
         private void SpawnCart()
@@ -63,32 +63,55 @@ namespace Goudkoorts
                 s.createCart();
             }
         }
-
-
-
+               
         public void doTick()
         {
             moveAllCarts();
             SpawnCart();
-        }
-
-        //thread methods
-        private void Draw()
-        {
-            while (true)
+            playField.ship.move();
+            if (playField.dock.TransferGold())
             {
-                Thread.Sleep(1000);
-                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
+                Score++;
+            }
+            if (playField.ship.isDone)
+            {
+                Score += 10;
             }
         }
 
+        //thread methods
+        private void handleInput()
+        {
+            while (true)
+            {
+                int move = input.ReadPlayMove();
+                switch (move)
+                {
+                    case 1:
+                        playField.Switches[move-1].doSwitching();
+                        break;
+                    case 2:
+                        playField.Switches[move - 1].doSwitching();
+                        break;
+                    case 3:
+                        playField.Switches[move - 1].doSwitching();
+                        break;
+                    case 4:
+                        playField.Switches[move - 1].doSwitching();
+                        break;
+                    case 5:
+                        playField.Switches[move - 1].doSwitching();
+                        break;
+                }
+
+            }
+        }
         private void TickTimer()
         {
             while(true)
             {
                 Thread.Sleep(TickDuration*1000);
                 doTick();
-                Score++;
             }
         }
 
@@ -103,6 +126,7 @@ namespace Goudkoorts
                     TimeTillTick = TickDuration+1;
                 }
                 TimeTillTick -= 1;
+                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
             }
         }
 
