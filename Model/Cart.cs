@@ -23,6 +23,7 @@ namespace Goudkoorts
             {
                 currentTrack.Next.GameObject = this;
                 currentTrack.GameObject = null;
+                
             }
 
 
