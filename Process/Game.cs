@@ -112,7 +112,6 @@ namespace Goudkoorts
                             break;
                     }
                 }
-
             }
         }
         private void TickTimer()
@@ -128,6 +127,7 @@ namespace Goudkoorts
                 }
                 
             }
+            
         }
 
         private void timer()
@@ -142,36 +142,36 @@ namespace Goudkoorts
                 TimeTillTick -= 1000;
                 output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick, TickNumber);
             }
+            output.endGameMessage(Score);
         }
 
         private void moveAllCarts()
         {
-            Cart[] c = playField.FindCarts();
-            for(int i=0; i<c.Length; i++)
+            List<Cart> carts = playField.FindCarts().ToList<Cart>();
+            while (carts.Count > 0)
             {
-                if (!c[i].HasMoved)
                 {
-                    Track t = (Track)c[i].Vierkant.fieldObject;
-                    if (!c[i].move())
+                    for (int i = 0; i < carts.Count; i++)
                     {
-                        endGame();
+                        Track t = (Track)carts[i].Vierkant.fieldObject;
+                        if (!carts[i].move())
+                        {
+                            endGame();
+                        }
+                        else
+                        {
+                            carts.Remove(carts[i]);
+                        }
                     }
-                }           
-            }
-            for (int i = 0; i < c.Length; i++)
-            {
-                c[i].HasMoved = false;
+                }
+
             }
         }
 
         private void endGame()
         {
-            //threads
-
-            GameTick = null;
-            Timer = null;
-            HandleInput = null;
-            output.endGameMessage(Score);
+            hasWon = true;
+            
         }
     }
 }
