@@ -61,12 +61,20 @@ namespace Goudkoorts
         private void SpawnCart()
         {
             Random r = new Random();
-            int factor = r.Next(3);
-            if(factor <= 2)
+            int CartFactor = r.Next(18);
+            if(CartFactor <= 2)
             {
-                Shed s = (Shed)playField.Sheds[1];
+                Shed s = (Shed)playField.Sheds[CartFactor];
                 s.createCart();
             }
+            int ShipFactor = r.Next(25);
+            if(ShipFactor == 13)
+            {
+                Water w = (Water)playField.First.South.fieldObject;
+                w.generateShip();
+            }
+
+            
         }
                
         public void doTick()
@@ -124,10 +132,8 @@ namespace Goudkoorts
                 if(factor <= TickDuration / 4)
                 {
                     factor = 50 * Score;
-                }
-                
-            }
-            
+                }                
+            }            
         }
 
         private void timer()
@@ -156,7 +162,7 @@ namespace Goudkoorts
                         Track t = (Track)carts[i].Vierkant.fieldObject;
                         if (!carts[i].move())
                         {
-                            endGame();
+                           endGame();
                         }
                         else
                         {

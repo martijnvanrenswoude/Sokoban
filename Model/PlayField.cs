@@ -258,7 +258,6 @@ namespace Goudkoorts
             }*/
         }
 
-
         private void addSwitch(SwitchTrack wissel)
         {
 
