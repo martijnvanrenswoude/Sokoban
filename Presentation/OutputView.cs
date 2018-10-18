@@ -118,5 +118,11 @@ namespace Goudkoorts
             Console.WriteLine("Score: " + score + " || Time: " + time + " || Tick: " + tick);
             showMap(first, rows, columns);
         }
+
+        public void endGameMessage(int score)
+        {
+            Console.WriteLine("Game Over, your score was: " + score);
+            Console.WriteLine("Press <s> to exit");
+        }
     }
 }

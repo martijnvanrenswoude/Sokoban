@@ -69,7 +69,7 @@ namespace Goudkoorts
         public void doTick()
         {
             moveAllCarts();
-          //  SpawnCart();
+            SpawnCart();
             playField.ship.move();
             if (playField.dock.TransferGold())
             {
@@ -136,12 +136,35 @@ namespace Goudkoorts
 
         private void moveAllCarts()
         {
-            FieldObject s;
             Cart[] c = playField.FindCarts();
             for(int i=0; i<c.Length; i++)
-            { 
-                c[i].move();
+            {
+                if (!c[i].HasMoved)
+                {
+                    Track t = (Track)c[i].Vierkant.fieldObject;
+                    if(t.Next != null && t.Next.GameObject == null)
+                    {
+                        if (c[i].CheckCollision())
+                        {
+                            endGame();
+                        }
+                        c[i].move();
+                    }
+                }           
+            }
+            for (int i = 0; i < c.Length; i++)
+            {
+                c[i].HasMoved = false;
             }
         }
+
+        private void endGame()
+        {
+            //threads
+            GameTick.Abort();
+            Timer.Abort();
+            HandleInput.Abort();
+            output.endGameMessage(Score);
+    }
     }
 }
