@@ -16,7 +16,7 @@ namespace Goudkoorts
         //game objects
         public SwitchTrack[] Switches { get; set; }
         public Shed[] Sheds { get; set; }
-        public Ship ship { get; set; }
+        public Ship[] Ships { get; set; }
         public StandardTrack dock { get; set; }
         public PlayField(FieldData fieldData)
         {
@@ -26,6 +26,7 @@ namespace Goudkoorts
             //set objects
             Switches = new SwitchTrack[5];
             Sheds = new Shed[3];
+            Ships = new Ship[12];
             getObjects();
             setNextTracks();
             setSwitchData();
@@ -293,10 +294,6 @@ namespace Goudkoorts
                         SwitchTrack tempObject = (SwitchTrack)temp.fieldObject;
                         addSwitch(tempObject);
                     }
-                    if(temp.fieldObject != null && temp.fieldObject.GameObject is Ship)
-                    {
-                        ship = (Ship)temp.fieldObject.GameObject;
-                    }
                     if(temp.fieldObject is StandardTrack)
                     {
                         StandardTrack tempObject = (StandardTrack)temp.fieldObject;
@@ -319,6 +316,30 @@ namespace Goudkoorts
                 if (Sheds[i] == null)
                 {
                     Sheds[i] = schuur;
+                    break;
+                }
+            }
+        }
+
+        private void addShip(Ship boot)
+        {
+            for (int i = 0; i < Ships.Length; i++)
+            {
+                if (Ships[i] == null)
+                {
+                    Ships[i] = boot;
+                    break;
+                }
+            }
+        }
+
+        public void removeShip(Ship boot)
+        {
+            for (int i = 0; i < Ships.Length; i++)
+            {
+                if (Ships[i] != null && Ships[i].isDone)
+                {
+                    Ships[i] = null;
                     break;
                 }
             }

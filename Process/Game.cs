@@ -68,6 +68,7 @@ namespace Goudkoorts
                 s.createCart();
             }
             int ShipFactor = r.Next(25);
+            ShipFactor = 13;
             if(ShipFactor == 13)
             {
                 Water w = (Water)playField.First.South.fieldObject;
@@ -81,15 +82,24 @@ namespace Goudkoorts
         {
             moveAllCarts();
             SpawnCart();
-            playField.ship.move();
-            if (playField.dock.TransferGold())
+
+            for (int i = 0; i < playField.Ships.Length; i++)
             {
-                Score++;
+                if (playField.Ships[i] != null)
+                {
+                    playField.Ships[i].move();
+
+                    if (playField.dock.TransferGold())
+                    {
+                        Score++;
+                    }
+                    if (playField.Ships[i].isDone)
+                    {
+                        Score += 10;
+                    }
+                }
             }
-            if (playField.ship.isDone)
-            {
-                Score += 10;
-            }
+
             TickNumber++;
         }
 
