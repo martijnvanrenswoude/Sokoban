@@ -20,7 +20,7 @@ namespace Goudkoorts
 
         public void generateShip()
         {   
-            if (CanGenerateShip)
+            if (CanGenerateShip && this.GameObject != null)
             {
                 Ship ship = new Ship(Square);
                 this.GameObject = ship;
