@@ -34,6 +34,7 @@ namespace Goudkoorts
             if(Vierkant.East == null)
             {
                 isDone = true;
+                Vierkant.fieldObject.GameObject = null;
             }
         }
 

@@ -8,6 +8,7 @@ namespace Goudkoorts
 {
     class Cart : GameObject
     {
+        public bool HasMoved{get;set;}
         public Cart(Square square)
         {
             Vierkant = square;
@@ -24,25 +25,16 @@ namespace Goudkoorts
                 currentTrack.Next.GameObject = this;
                 currentTrack.GameObject = null;
                 Vierkant = currentTrack.Next.Square;
+                HasMoved = true;
             }
-
-
-            /*
-            Track tempTrack = (Track)Vierkant.fieldObject;
-            if (tempTrack.Next != null && !CheckCollision())
+            if(currentTrack.Next == null && currentTrack is StandardTrack)
             {
-                CanMove = true;
-                if (tempTrack.Next is Track)
-                {
-                    tempTrack.Next.GameObject = this;
-                    tempTrack.GameObject = null;
-                    Vierkant = tempTrack.Square;
-                }
+                currentTrack.GameObject = null;
+                HasMoved = true;
             }
-            else
-            {
-                CanMove = false;
-            }*/
+            if((currentTrack.Next.GameObject != null && currentTrack is CollectionTrack)){
+                return;
+            }
         }
 
         public bool CheckCollision()
