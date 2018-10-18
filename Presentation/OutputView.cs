@@ -18,7 +18,7 @@ namespace Goudkoorts
             Console.WriteLine("|  <8>  : vol schip           |  mogelijk punten    |");
             Console.WriteLine("|    K  : Kade                |  door het schip vol |");
             Console.WriteLine("|    o  : wagen               |  weg te sturen      |");
-            Console.WriteLine("|    0  : wagen met inhoud    |                     |");
+            Console.WriteLine("|    Q  : wagen met inhoud    |                     |");
             Console.WriteLine("|    #  : loods               |                     |");
             Console.WriteLine("|    >  : baanvak met richting|                     |");
             Console.WriteLine("|    /  : wissel omhoog       |                     |");
@@ -60,7 +60,7 @@ namespace Goudkoorts
                     Cart temp = (Cart)c.fieldObject.GameObject;
                     if (temp.IsFull)
                     {
-                        return 'X';
+                        return 'Q';
                     }
                     return 'O';
                 }
@@ -112,10 +112,10 @@ namespace Goudkoorts
             }
         }
 
-        public void showLevel(Square first, int rows, int columns, int score, int time)
+        public void showLevel(Square first, int rows, int columns, int score, int time, int tick)
         {
             Console.Clear();
-            Console.WriteLine("Score: " + score + " || Time: " + time);
+            Console.WriteLine("Score: " + score + " || Time: " + time + " || Tick: " + tick);
             showMap(first, rows, columns);
         }
     }

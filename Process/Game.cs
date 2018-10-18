@@ -19,6 +19,7 @@ namespace Goudkoorts
         public int Score { get; set; }
         public int TickDuration { get; set; }
         public int TimeTillTick { get; set; }
+        public int TickNumber { get; set; }
         //other classes
         private InputView input { get; set; }
         private OutputView output { get; set; }
@@ -28,8 +29,9 @@ namespace Goudkoorts
         public Game()
         {
             //vars
-            TickDuration = 5;
+            TickDuration = 3000;
             TimeTillTick = TickDuration;
+            TickNumber = 0;
             //instances
             input =     new InputView();
             output =    new OutputView();
@@ -45,7 +47,7 @@ namespace Goudkoorts
         {
             //output
             output.showTutuorial();
-            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
+            output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick,TickNumber);
             //threads start
             HandleInput.Start();
             GameTick.Start();
@@ -67,7 +69,7 @@ namespace Goudkoorts
         public void doTick()
         {
             moveAllCarts();
-            SpawnCart();
+          //  SpawnCart();
             playField.ship.move();
             if (playField.dock.TransferGold())
             {
@@ -77,6 +79,7 @@ namespace Goudkoorts
             {
                 Score += 10;
             }
+            TickNumber++;
         }
 
         //thread methods
@@ -108,25 +111,26 @@ namespace Goudkoorts
         }
         private void TickTimer()
         {
+            int factor = 0;
             while(true)
             {
-                Thread.Sleep(TickDuration*1000);
+                Thread.Sleep(TickDuration-factor);
                 doTick();
+                factor = 50 * Score;
             }
         }
 
         private void timer()
         {
-         //   TimeTillTick++;
             while (true)
             {
                 Thread.Sleep(1000);
-                if (TimeTillTick <= 1)
+                if (TimeTillTick <= 1000)
                 {
-                    TimeTillTick = TickDuration+1;
+                    TimeTillTick = TickDuration+1000;
                 }
-                TimeTillTick -= 1;
-                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
+                TimeTillTick -= 1000;
+                output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick, TickNumber);
             }
         }
 
@@ -135,8 +139,7 @@ namespace Goudkoorts
             FieldObject s;
             Cart[] c = playField.FindCarts();
             for(int i=0; i<c.Length; i++)
-            {
-                s = c[i].Vierkant.fieldObject;
+            { 
                 c[i].move();
             }
         }
