@@ -32,7 +32,7 @@ namespace Goudkoorts
         {
             //vars
             ShedInterval = 7000;
-            TickDuration = 5000;
+            TickDuration = 500;
             TimeTillTick = TickDuration;
             //instances
             input =     new InputView();
@@ -80,7 +80,7 @@ namespace Goudkoorts
         {
             while (true)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(1000);
                 output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
             }
         }
@@ -114,9 +114,11 @@ namespace Goudkoorts
 
         private void moveAllCarts()
         {
+            FieldObject s;
             Cart[] c = playField.FindCarts();
             for(int i=0; i<c.Length; i++)
             {
+                s = c[i].Vierkant.fieldObject;
                 c[i].move();
             }
         }

@@ -18,6 +18,15 @@ namespace Goudkoorts
 
         public override void move()
         {
+            Track currentTrack = (Track)Vierkant.fieldObject;
+            if (currentTrack.Next != null)
+            {
+                currentTrack.Next.GameObject = this;
+                currentTrack.GameObject = null;
+            }
+
+
+            /*
             Track tempTrack = (Track)Vierkant.fieldObject;
             if (tempTrack.Next != null && !CheckCollision())
             {
@@ -32,7 +41,7 @@ namespace Goudkoorts
             else
             {
                 CanMove = false;
-            }
+            }*/
         }
 
         public bool CheckCollision()

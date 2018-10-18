@@ -17,7 +17,7 @@ namespace Goudkoorts
                                                     "b554c56c54cc",
                                                     "cccccc859ccc",
                                                     "b555554c5556",
-                                                    "aaaaaaaa7777" };
+                                                    "caaaaaaaa777" };
         // water           --> 1
         //ship             --> 2
         //dock             --> 3

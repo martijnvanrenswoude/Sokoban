@@ -12,7 +12,7 @@ namespace Goudkoorts
         Square[] field;
         public Square First;
         public SwitchTrack[] Switches { get; set; }
-        
+
         public Shed[] Sheds { get; set; }
         public PlayField(FieldData fieldData)
         {
@@ -23,6 +23,8 @@ namespace Goudkoorts
             setSwitches();
             Sheds = new Shed[3];
             setSheds();
+            setNextTracks();
+            Track[] tracks = getAllTracks();
         }
 
         private void makeItems()
@@ -109,62 +111,146 @@ namespace Goudkoorts
             return column + (row * fieldData.numberOfColumns());
         } //convert de kolom en de rij naar de index in het item array
 
+
+        public Track[] getAllTracks()
+        {
+            List<Track> tracks = new List<Track>();
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+
+            Square holder = First;
+            Square temp = First;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    // do shit voor elke square
+                    if (temp.fieldObject != null && temp.fieldObject is Track)
+                    {
+                        //doe shit voor elke track
+                        tracks.Add((Track)temp.fieldObject);
+                    }
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+            Track[] t = tracks.ToArray();
+            return t;
+
+        }
         private void setNextTracks()
         {
-            int rows = fieldData.numberOfRows();
+            Track[] tracks = getAllTracks();
+            for (int i = 0; i < tracks.Length; i++)
+            {
+                if (tracks[i].direction == Track.Direction.N)
+                {
+                    if (tracks[i].Square.North != null && tracks[i].Square.North.fieldObject is Track)
+                    {
+                        tracks[i].Next = (Track)tracks[i].Square.North.fieldObject;
+                    }
+                }
+                if (tracks[i].direction == Track.Direction.S)
+                {
+                    if (tracks[i].Square.South != null && tracks[i].Square.South.fieldObject is Track)
+                    {
+                        tracks[i].Next = (Track)tracks[i].Square.South.fieldObject;
+                    }
+                }
+                if (tracks[i].direction == Track.Direction.E)
+                {
+                    if (tracks[i].Square.East != null && tracks[i].Square.East.fieldObject is Track)
+                    {
+                        tracks[i].Next = (Track)tracks[i].Square.East.fieldObject;
+                    }
+                }
+                if (tracks[i].direction == Track.Direction.W)
+                {
+                    if (tracks[i].Square.West != null && tracks[i].Square.West.fieldObject is Track)
+                    {
+                        tracks[i].Next = (Track)tracks[i].Square.West.fieldObject;
+                    }
+                }
+
+
+            }
+        
+    
+
+
+            /*
+            int rows = fieldData.numberOfRows()-2;
             int columns = fieldData.numberOfColumns();
 
             Square temp = First.South.South;
             Square holder = First.South.South;
             Track tempTrack = (Track)First.South.South.fieldObject;
             Track newTempTrack;
-
-            for (int i = 0; i < rows; i++)
+            for (int i = 2; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                   if(temp.North != null && tempTrack.direction == Track.Direction.N)
+                    if (tempTrack != null)
                     {
-                        if(temp.North.fieldObject is Track)
+                        if (tempTrack.direction == Track.Direction.N)
                         {
-                            newTempTrack = (Track)temp.North.fieldObject;
-                            tempTrack.Next = newTempTrack;
+                            if (temp.North != null && temp.North.fieldObject is Track)
+                            {
+                                newTempTrack = (Track)temp.North.fieldObject;
+                                tempTrack.Next = newTempTrack;
+                            }
+
                         }
-                        
-                    }
-                    if (temp.South != null && tempTrack.direction == Track.Direction.S)
-                    {
-                        if (temp.South.fieldObject is Track)
+                        if (tempTrack.direction == Track.Direction.S)
                         {
-                            newTempTrack = (Track)temp.South.fieldObject;
-                            tempTrack.Next = newTempTrack;
-                        }
+                            if (temp.South != null && temp.South.fieldObject is Track)
+                            {
+                                newTempTrack = (Track)temp.South.fieldObject;
+                                tempTrack.Next = newTempTrack;
+                            }
 
-                    }
-                    if (temp.West != null && tempTrack.direction == Track.Direction.W)
-                    {
-                        if (temp.West.fieldObject is Track)
+                        }
+                        if (tempTrack.direction == Track.Direction.W)
                         {
-                            newTempTrack = (Track)temp.West.fieldObject;
-                            tempTrack.Next = newTempTrack;
-                        }
+                            if (temp.West != null && temp.West.fieldObject is Track)
+                            {
+                                newTempTrack = (Track)temp.West.fieldObject;
+                                tempTrack.Next = newTempTrack;
+                            }
 
-                    }
-                    if (temp.East != null && tempTrack.direction == Track.Direction.E)
-                    {
-                        if (temp.East.fieldObject is Track)
+                        }
+                        if (tempTrack.direction == Track.Direction.E)
                         {
-                            newTempTrack = (Track)temp.East.fieldObject;
-                            tempTrack.Next = newTempTrack;
+                            if (temp.East != null && temp.East.fieldObject is Track)
+                            {
+                                newTempTrack = (Track)temp.East.fieldObject;
+                                tempTrack.Next = newTempTrack;
+                            }
+
                         }
-
                     }
-
                     temp = temp.East;
+                    if (temp !=  null)
+                    {
+                        tempTrack = (Track)temp.fieldObject;
+                    }
+                    else
+                    {
+                        tempTrack = null;
+                    }
                 }
                 temp = holder.South;
+                if (temp.fieldObject is Track)
+                {
+                    tempTrack = (Track)temp.fieldObject;
+                }
+                else
+                {
+                    tempTrack = null;
+                }
                 holder = holder.South;
-            }
+            }*/
         }
 
         public void setSwitches()
