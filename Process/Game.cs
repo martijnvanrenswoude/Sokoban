@@ -15,12 +15,10 @@ namespace Goudkoorts
 
         private Thread ViewRefresh;
 
-        private Thread CartSpawn;
 
         public int Score { get; set; }
         public int TickDuration { get; set; }
 
-        public int ShedInterval { get; set; }
         public int TimeTillTick { get; set; }
         public int SpawnInterval {get;set;}
         private InputView input { get; set; }
@@ -31,8 +29,7 @@ namespace Goudkoorts
         public Game()
         {
             //vars
-            ShedInterval = 7000;
-            TickDuration = 500;
+            TickDuration = 5;
             TimeTillTick = TickDuration;
             //instances
             input =     new InputView();
@@ -43,36 +40,36 @@ namespace Goudkoorts
             //threads
             GameTick =      new Thread(new ThreadStart(TickTimer));
             Timer =         new Thread(new ThreadStart(timer));
-            ViewRefresh =   new Thread(new ThreadStart(Draw));
-            CartSpawn =     new Thread(new ThreadStart(SpawnTimer));            
+            ViewRefresh =   new Thread(new ThreadStart(Draw));      
         }
         public void start()
         {
             //output
             output.showTutuorial();
             output.showLevel(playField.First, fieldData.numberOfRows(), fieldData.numberOfColumns(), Score, TimeTillTick);
-            //thread startss
+            //threads start
             ViewRefresh.Start();
             GameTick.Start();
             Timer.Start();
-            CartSpawn.Start();            
         }
 
-        private void SpawnTimer()
+        private void SpawnCart()
         {
             Random r = new Random();
-            Shed s;
-            while (true)
+            int factor = r.Next(6);
+            if(factor <= 2)
             {
-                s = (Shed)playField.Sheds[r.Next(3)];
+                Shed s = (Shed)playField.Sheds[r.Next(3)];
                 s.createCart();
-                Thread.Sleep(ShedInterval);
             }
         }
+
+
 
         public void doTick()
         {
             moveAllCarts();
+            SpawnCart();
         }
 
         //thread methods
@@ -89,26 +86,23 @@ namespace Goudkoorts
         {
             while(true)
             {
-                Thread.Sleep(TickDuration);
+                Thread.Sleep(TickDuration*1000);
                 doTick();
-                if(TickDuration > 1000)
-                {        
-                    TickDuration -= 50;
-                }                
-                Score = TickDuration;
+                Score++;
             }
         }
 
         private void timer()
         {
+         //   TimeTillTick++;
             while (true)
             {
-                Thread.Sleep(100);
-                if (TimeTillTick - 100 <= 0)
+                Thread.Sleep(1000);
+                if (TimeTillTick <= 1)
                 {
-                    TimeTillTick = TickDuration;
+                    TimeTillTick = TickDuration+1;
                 }
-                TimeTillTick -= 100;
+                TimeTillTick -= 1;
             }
         }
 

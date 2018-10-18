@@ -11,14 +11,15 @@ namespace Goudkoorts
     {
 
         public bool CanGenerateShip { get; set; }
-        public Water(char value, Square square)
+        public Water(char value, Square square,bool ship)
         {
+            CanGenerateShip = ship;
             ObjectType = value;
             Square = square;
         }
 
         public void generateShip()
-        {
+        {   
             if (CanGenerateShip)
             {
                 Ship ship = new Ship(Square);

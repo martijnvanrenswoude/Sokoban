@@ -63,10 +63,10 @@ namespace Goudkoorts
                     break;
 
                 case '1':
-                    fieldObject = new Water('1', this);
+                    fieldObject = new Water('1', this,false);
                     break;
                 case '2':
-                    fieldObject = new Water('1', this);
+                    fieldObject = new Water('1', this, true);
                     if (fieldObject is Water)
                     {
                         Water water = (Water)fieldObject;

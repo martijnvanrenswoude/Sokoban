@@ -51,7 +51,10 @@ namespace Goudkoorts
                 if(c.fieldObject.GameObject is Ship)
                 {
                     Ship temp = (Ship)c.fieldObject.GameObject;
-                    return (Char) temp.content;
+                    int y = temp.content+5;
+                    char ship = (char)y;
+                    return ship;
+                    
                 }
                 if (c.fieldObject.GameObject is Cart)
                 {
