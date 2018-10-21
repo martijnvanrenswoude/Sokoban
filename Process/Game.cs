@@ -82,23 +82,7 @@ namespace Goudkoorts
         {
             moveAllCarts();
             SpawnCart();
-
-            for (int i = 0; i < playField.Ships.Length; i++)
-            {
-                if (playField.Ships[i] != null)
-                {
-                    playField.Ships[i].move();
-
-                    if (playField.dock.TransferGold())
-                    {
-                        Score++;
-                    }
-                    if (playField.Ships[i].isDone)
-                    {
-                        Score += 10;
-                    }
-                }
-            }
+            moveAllShips();
 
             TickNumber++;
         }
@@ -182,6 +166,20 @@ namespace Goudkoorts
                 }
 
             }
+        }
+
+        private void moveAllShips()
+        {
+            List<Ship> ships = playField.FindShips().ToList<Ship>();
+            
+                {
+                    for (int i = 0; i < ships.Count; i++)
+                    {
+                        ships[i].move();
+                    }
+                }
+
+            
         }
 
         private void endGame()

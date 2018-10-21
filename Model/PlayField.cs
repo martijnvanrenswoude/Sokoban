@@ -370,6 +370,32 @@ namespace Goudkoorts
             return c;
         }
 
+
+        public Ship[] FindShips()
+        {
+            int rows = fieldData.numberOfRows();
+            int columns = fieldData.numberOfColumns();
+            Square temp = First;
+            Square holder = First;
+            List<Ship> ships = new List<Ship>();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (temp.fieldObject != null && temp.fieldObject.GameObject is Ship)
+                    {
+                        Ship tempObject = (Ship)temp.fieldObject.GameObject;
+                        ships.Add(tempObject);
+                    }
+                    temp = temp.East;
+                }
+                temp = holder.South;
+                holder = holder.South;
+            }
+            Ship[] s = ships.ToArray();
+            return s;
+        }
+
         private void setSwitchData()
         {
             for (int i = 0; i < Switches.Length; i++)
