@@ -68,7 +68,6 @@ namespace Goudkoorts
                 s.createCart();
             }
             int ShipFactor = r.Next(25);
-            ShipFactor = 13;
             if(ShipFactor == 13)
             {
                 Water w = (Water)playField.First.South.fieldObject;
