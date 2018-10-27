@@ -44,7 +44,7 @@ namespace Goudkoorts
         }
 
         public bool CheckCollision()
-        {/*
+        {
             Track tempTrack = (Track)Vierkant.fieldObject;
             if (!(tempTrack is CollectionTrack) && tempTrack.Next != null &&  tempTrack.Next.GameObject != null &&  !tempTrack.Next.GameObject.CanMove)
             {
@@ -53,8 +53,7 @@ namespace Goudkoorts
             else
             {
                 return false;
-            }*/
-            return false;
+            }
         }
     }
 }
